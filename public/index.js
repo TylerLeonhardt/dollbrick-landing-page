@@ -1,104 +1,85 @@
 import ReactDOM from "https://esm.sh/react-dom@18.3.1";
 import { html } from "https://esm.sh/htm@3.1.1/react";
+import { Card, ImageHeader, CardBody, CardFooter } from 'https://esm.sh/react-simple-card@latest';
 import shows from './data/shows.js';
 
-const Logo = () => {
-    return html`
-      <div className="logo">
-        <span className="logo--top">Dollbrick Improv Collective Kitchen</span>
-      </div>
-    `;
-  }
-  
-  const Header = () => {
-    return html`
-      <header>
-        <h1>
-          <${Logo} />
-          ${ /*<div className="social-media-links">
-            <a href="https://www.instagram.com/coffeeartbytyler" target="_blank" aria-label="Instagram" title="Instagram">
-              <span className="fab fa-instagram fa-fw"></span>
-            </a>
-          </div>*/ ''}
-        </h1>
-      </header>
-    `;
-  }
-  
-  const HeroBanner = ({ heading }) => {
-    return html`
-      <section className="hero-banner">
-        <div className="hero-banner-image"></div>
-        <div className="hero-banner-content">
-          <h2>${heading}</h2>
-        </div>
-      </section>
-    `;
-  }
-  
-  const MenuList = () => {
-    return html`
-      <div className="show">
-        ${[...shows].map(show => {
-      return html`
-            <div className="show">
-              <span className="show-title">${show.title}</span>
-              <span className="show-description">${show.description}</span>
-              <span className="show-date">${show.date}</span>
-            </div>
-          `
-    })}
-      </div>
-    `;
-  }
-  
-  const Home = () => {
-    return html`
-      <React.Fragment>
-        <${HeroBanner} heading="Dollbrick Improv Collective Kitchen" />
-        <section className="main-content menu">
-          <h3>Upcomming Shows</h3>
-          <p className="menu-info"><span className="bold">Milk Selections:</span> Oat... and only oat</p>
-          <p className="menu-info"><span className="bold">House Made Syrups:</span> Vanilla, Pumpkin Spice, Maple</p>
-          <p className="menu-info">✧: <span className="italics">house specialty</span></p>
-          <h4>Coffee</h4>
-          <${MenuList} />
-        </section>
-      </React.Fragment>
-    `;
-  }
-  
-  const Footer = () => {
-    return html`
-      <footer>
-        <div className="coffee-shop-footer">
-          <${Logo} />
-          <div className="other">
-            <div className="social-media-links">
-              <a href="https://www.instagram.com/coffeeartbytyler" target="_blank" aria-label="Instagram" title="Instagram">
-                <span className="fab fa-instagram fa-fw"></span>
-              </a>
-            </div>
-          </div>
-        </div>
-        <hr />
-        <div className="app-footer">Forked from <a href="https://autumnchris.github.io/portfolio" target="_blank">Autumn Bullard's</a> amazing <a href="https://github.com/autumnchris/multipage-coffee-shop-site-reactjs" target="_blank">coffee shop example</a>!</div>
-      </footer>
-    `;
-  }
+const Logo = () => html`
+<div className="logo sixtyfour-convergence-font">
+  <span className="logo--top">Dollbrick Improv Collective Kitchen</span>
+</div>
+`;
 
-const App = () => {
-    return html`
-        <${Header} />
-        <main>
-        <${Home} />
-        </main>
-        <${Footer} />
-    `;
+const Header = () => html`
+<header>
+  <h1>
+    <${Logo} />
+  </h1>
+</header>
+`;
+
+const HeroBanner = () => html`
+  <section className="hero-banner">
+    <div className="hero-banner-image"></div>
+  </section>
+`;
+
+const ShowList = () => html`
+<div className="show">
+  ${shows.map(show => html`
+      <${Card}>
+        <${ImageHeader} alt="testAlt" imageSrc="./assets/images/spoons-in.jpg" />
+        <${CardBody}>
+          <h3>${show.title}</h3>
+          <p>${show.date.toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })} - ${show.location}</p>
+          <p>${show.description}</p>
+        </CardBody>
+        ${html`
+        <${CardFooter}>
+          <a disabled=${!!show.tickets} href=${show.tickets}>${!show.tickets
+    ? 'Tickets on sale soon!'
+    : 'Tickets'
+  }</a>
+        </CardFooter>`}
+      </Card>`
+  )}
+  ${shows.length
+  ? html`<h5>More shows comming soon...</h5>`
+  : html`<h5>Upcoming shows comming soon...</h5>`}
+</div>
+`;
+
+const Home = () => html`
+<React.Fragment>
+  <${HeroBanner}/>
+  <section className="main-content shows">
+    <h3>Who are we?</h3>
+    <p className="show-info">Hey there! We’re Dollbrick, a Seattle-based improv group that’s been making folks laugh since 2023. We love diving into long form improv, but we’re not above some quick, silly games either. Our name came from a goofy improv scene—come see us live and maybe we’ll spill the details. Expect lots of laughs and unexpected fun! 🧱🎭</p>
+    <h4>Upcomming Shows</h4>
+    <${ShowList} />
+  </section>
+</React.Fragment>
+`;
+
+const Footer = () => {
+  return html`
+    <footer>
+      <div className="coffee-shop-footer">
+        <${Logo} />
+      </div>
+    </footer>
+  `;
 }
 
+const App = () => html`
+<${Header} />
+<main>
+<${Home} />
+</main>
+<${Footer} />
+`;
+
 async function main() {
-    ReactDOM.render(html`<${App} />`, document.body);
-  }
-  
+  ReactDOM.render(html`<${App} />`, document.body);
+}
+
 main();

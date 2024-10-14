@@ -1,11 +1,13 @@
-@font-face {
-    font-family: "Dark Idea";
-    src: url("assets/fonts/dark-idea.ttf")
-}
-
-@font-face {
-    font-family: "TA Typefire";
-    src: url("/public/assets/fonts/ta-typefire.otf")
+.sixtyfour-convergence-font {
+    font-family: "Sixtyfour Convergence", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+        "BLED" 0,
+        "SCAN" 0,
+        "XELA" 0,
+        "YELA" 0;
 }
 
 * {
@@ -21,7 +23,7 @@ html {
 }
 
 html body {
-    background: #e4cfb4;
+    background: #f0f0f0;
     color: #000;
     min-height: 100%;
     -ms-scroll-chaining: none;
@@ -36,7 +38,10 @@ html body h3,
 html body h4,
 html body h5,
 html body h6 {
-    font-family: "Playfair Display", serif;
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
     margin-top: 0
 }
 
@@ -65,57 +70,13 @@ a:focus:hover {
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
-    font-family: 'Dark Idea', cursive;
     margin-bottom: -10px;
-    color: #e4cfb4;
-}
-
-.social-media-links {
-    margin-top: 14px;
-    padding-bottom: 26px;
-    -webkit-box-ordinal-group: 0;
-    -ms-flex-order: -1;
-    order: -1
-}
-
-@media all and (min-width: 620px) {
-    .social-media-links {
-        padding-bottom: 0;
-        -webkit-box-ordinal-group: 1;
-        -ms-flex-order: 0;
-        order: 0
-    }
-}
-
-.social-media-links a,
-.social-media-links a:visited,
-.social-media-links a:hover,
-.social-media-links a:active,
-.social-media-links a:focus {
-    color: #fff;
-    font-size: 1.5rem
-}
-
-.social-media-links a:hover,
-.social-media-links a:visited:hover,
-.social-media-links a:hover:hover,
-.social-media-links a:active:hover,
-.social-media-links a:focus:hover {
-    color: #e4cfb4
-}
-
-.social-media-links a:not(:last-child),
-.social-media-links a:visited:not(:last-child),
-.social-media-links a:hover:not(:last-child),
-.social-media-links a:active:not(:last-child),
-.social-media-links a:focus:not(:last-child) {
-    margin-right: 6px
+    color: #a13e3e;
 }
 
 header {
-    background: #432d2d;
+    background: #f9f9f9;
     color: #fff;
-    height: 100px;
     left: 0;
     position: fixed;
     right: 0;
@@ -126,15 +87,15 @@ header {
 }
 
 main {
-    padding-top: 100px;
-    padding-bottom: 385px
+    padding-top: 50px;
+    padding-bottom: 50px
 }
 
-@media all and (min-width: 620px) {
+/* @media all and (min-width: 620px) {
     main {
         padding-bottom: 330px
     }
-}
+} */
 
 main .main-content {
     margin: 0 auto;
@@ -156,7 +117,6 @@ main .main-content .italics {
 }
 
 .hero-banner+.main-content h3 {
-    border-bottom: 6px double #9a5928;
     color: #432d2d;
     font-size: 1.8rem;
     letter-spacing: 3px;
@@ -190,19 +150,19 @@ main .main-content .italics {
 
 /* #region menu */
 
-.main-content.menu h3 {
+.main-content.shows h3 {
     margin-bottom: 30px
 }
 
-.main-content.menu h4 {
-    border-bottom: 2px solid #9a5928;
+.main-content.shows h4 {
+    border-bottom: 2px #432d2d;
     margin: 38px 0 18px;
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content
 }
 
-.main-content.menu .menu-item {
+.main-content.shows .show-item {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -214,7 +174,7 @@ main .main-content .italics {
 }
 
 @media all and (min-width: 500px) {
-    .main-content.menu .menu-item {
+    .main-content.shows .show-item {
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -226,16 +186,16 @@ main .main-content .italics {
     }
 }
 
-.main-content.menu .menu-item .item-name {
+.main-content.shows .show-item .item-name {
     font-size: 1.15rem;
     font-weight: 600
 }
 
-.main-content.menu .menu-item .detail {
+.main-content.shows .show-item .detail {
     font-size: .85rem
 }
 
-.main-content.menu .menu-info {
+.main-content.shows .show-info {
     font-size: .9rem
 }
 
@@ -244,12 +204,11 @@ main .main-content .italics {
 /* #region footer */
 
 footer {
-    background: #41423e;
+    background: #d4d4d4;
     bottom: 0;
     color: #fff;
     left: 0;
-    padding: 0 20px;
-    position: absolute;
+    padding: 0 20px 10px 0;
     right: 0;
     width: 100%
 }
@@ -260,14 +219,6 @@ footer a:hover,
 footer a:active,
 footer a:focus {
     color: #e4cfb4
-}
-
-footer hr {
-    border-bottom: 1px solid #e4cfb4
-}
-
-footer .coffee-shop-footer {
-    padding: 0 20px
 }
 
 footer .app-footer {
@@ -281,54 +232,20 @@ footer .app-footer {
 /* #region hero banner */
 
 .hero-banner {
-    background: #9a5928;
+    background: #B99682;
     position: relative
 }
 
 .hero-banner .hero-banner-image {
-    background: url('./assets/images/menu-hero-banner.png');
+    background: url('./assets/images/hero.png');
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: cover;
-    -webkit-filter: brightness(60%);
-    filter: brightness(60%);
-    min-height: 300px;
+    min-height: 400px;
     width: 100%
 }
 
-@media all and (min-width: 600px) {
-    .hero-banner .hero-banner-image {
-        min-height: 400px
-    }
-}
-
-@media all and (min-width: 800px) {
-    .hero-banner .hero-banner-image {
-        background-position: top center;
-        min-height: 500px
-    }
-}
-
-@media all and (min-width: 900px) {
-    .hero-banner .hero-banner-image {
-        min-height: 600px
-    }
-}
-
-@media all and (min-width: 1000px) {
-    .hero-banner .hero-banner-image {
-        min-height: 700px
-    }
-}
-
-@media all and (min-width: 1100px) {
-    .hero-banner .hero-banner-image {
-        min-height: 800px
-    }
-}
-
 .hero-banner .hero-banner-content {
-    color: #e4cfb4;
+    color: #ffffff;
     left: 0;
     letter-spacing: 6px;
     position: absolute;

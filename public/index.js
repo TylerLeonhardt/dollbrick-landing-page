@@ -24,14 +24,15 @@ const HeroBanner = () => html`
 `;
 
 const ShowList = () => html`
+<h4>Upcomming Shows</h4>
 <div className="show">
   ${shows.map(show => html`
       <${Card}>
         <${ImageHeader} alt="testAlt" imageSrc="./assets/images/spoons-in.jpg" />
         <${CardBody}>
           <h3>${show.title}</h3>
-          <p>${show.date.toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })} - ${show.location}</p>
-          <p>${show.description}</p>
+          <p className="show-info">${show.date.toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })} - ${show.location}</p>
+          <p className="show-info">${show.description}</p>
         </CardBody>
         ${html`
         <${CardFooter}>
@@ -53,8 +54,8 @@ const Home = () => html`
   <${HeroBanner}/>
   <section className="main-content shows">
     <h3>Who are we?</h3>
-    <p className="show-info">Hey there! We’re Dollbrick, a Seattle-based improv group that’s been making folks laugh since 2023. We love diving into long form improv, but we’re not above some quick, silly games either. Our name came from a goofy improv scene—come see us live and maybe we’ll spill the details. Expect lots of laughs and unexpected fun! 🧱🎭</p>
-    <h4>Upcomming Shows</h4>
+    <p className="show-info">Hey there! We're Dollbrick, a Seattle-based improv group that's been making folks laugh since 2023.</p>
+    <p className="show-info">We love diving into long form improv, but we're not above some quick, silly games either. Our name came from a goofy improv scene—come see us live and maybe we'll spill the details. Expect lots of laughs and unexpected fun! 🧱🎭</p>
     <${ShowList} />
   </section>
 </React.Fragment>

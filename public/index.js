@@ -24,7 +24,7 @@ const HeroBanner = () => html`
 `;
 
 const ShowList = () => html`
-<h4>Upcomming Shows</h4>
+<h4>Upcoming Shows</h4>
 <div className="show">
   ${shows.map(show => html`
       <${Card}>
@@ -44,7 +44,7 @@ const ShowList = () => html`
       </Card>`
   )}
   ${shows.length
-  ? html`<h5>More shows comming soon...</h5>`
+  ? html`<h5>More shows coming soon...</h5>`
   : html`<h5>Upcoming shows comming soon...</h5>`}
 </div>
 `;

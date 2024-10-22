@@ -28,10 +28,11 @@ const ShowList = () => html`
 <div className="show">
   ${shows.map(show => html`
       <${Card}>
-        <${ImageHeader} alt="testAlt" imageSrc="./assets/images/spoons-in.jpg" />
+        <${ImageHeader} className="image-header" alt="testAlt" imageSrc="${show.image ?? './assets/images/hero-image.png'}" />
         <${CardBody}>
           <h3>${show.title}</h3>
-          <p className="show-info">${show.date.toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })} - ${show.location}</p>
+          ${show.jetCity ? html`<h5 class="center">In collaboration with <a target="_blank" href="https://www.jetcityimprov.org">Jet City Improv</a></h5>` : ''}
+          <p className="show-info">${show.date.toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })} - ${show.location}</p>
           <p className="show-info">${show.description}</p>
         </CardBody>
         ${html`

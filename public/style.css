@@ -150,8 +150,17 @@ main .main-content .italics {
 
 /* #region menu */
 
+.center {
+    text-align: center;
+}
+
+.image-header {
+    max-height: 300px;
+    overflow: hidden;
+}
+
 .main-content.shows h3 {
-    margin-bottom: 30px
+    margin-bottom: 10px
 }
 
 .main-content.shows h4 {

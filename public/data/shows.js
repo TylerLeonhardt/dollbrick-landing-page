@@ -29,6 +29,10 @@ const showcase303 = {
 /** @type {Array<Show>} */
 const shows = [
     {
+        ...spoonsIn,
+        date: new Date("2024-09-25T19:30:00-08:00"),
+    },
+    {
         ...showcase303,
         date: new Date("2024-11-25T19:30:00-08:00"),
     },
@@ -46,6 +50,6 @@ const shows = [
         date: new Date(2025, 1, 14, 21, 30),
         // tickets: "put URL here"
     }
-];
+].sort((a, b) => a.date.getTime() - b.date.getTime());
 
 export default shows;

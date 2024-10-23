@@ -31,7 +31,7 @@ const Show = ({ show }) => {
     <${Card}>
       <${ImageHeader} className="image-header" alt="testAlt" imageSrc="${show.image ?? './assets/images/hero-image.png'}" />
       <${CardBody}>
-        <h3>${show.title}</h3>
+        <h2 class="center">${show.title}</h2>
         ${show.jetCity ? html`<h5 class="center">In collaboration with <a target="_blank" href="https://www.jetcityimprov.org">Jet City Improv</a></h5>` : ''}
         <p className="show-info">${show.date.toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })} - ${show.location}</p>
         <p className="show-info">${show.description}</p>
@@ -46,7 +46,7 @@ const Show = ({ show }) => {
 };
 
 const ShowList = ({ shows, title, showMoreMessage = true }) => html`
-  <h4>${title}</h4>
+  <h2>${title}</h2>
   <div className="show">
     ${shows.map(show => html`<${Show} show=${show} />`)}
     ${showMoreMessage && (shows.length ? html`<h5>More shows coming soon...</h5>` : html`<h5>Upcoming shows coming soon...</h5>`)}
@@ -62,11 +62,13 @@ const Home = () => {
     <React.Fragment>
       <${HeroBanner}/>
       <section className="main-content shows">
-        <h3>Who are we?</h3>
+        <h1 class="center">Who are we?</h1>
         <p className="show-info">Hey there! We're Dollbrick, a Seattle-based improv group that's been making folks laugh since 2023.</p>
         <p className="show-info">We love diving into long form improv, but we're not above some quick, silly games either. Our name came from a goofy improv scene—come see us live and maybe we'll spill the details. Expect lots of laughs and unexpected fun! 🧱🎭</p>
-        <${ShowList} shows=${futureShows} title="Upcoming Shows" />
-        <${ShowList} shows=${pastShows} title="Past Shows" showMoreMessage=${false} />
+        <div class="showlists">
+          <${ShowList} shows=${futureShows} title="Upcoming Shows" />
+          <${ShowList} shows=${pastShows} title="Past Shows" showMoreMessage=${false} />
+        </div>
       </section>
     </React.Fragment>
   `;

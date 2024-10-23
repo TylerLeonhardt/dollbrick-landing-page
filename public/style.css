@@ -140,22 +140,9 @@ main .main-content {
 }
 
 /* Footer Styles */
-footer {
-    background: #d4d4d4;
-    bottom: 0;
-    color: #fff;
-    left: 0;
-    padding: 0 20px 10px 0;
-    right: 0;
-    width: 100%;
-}
 
-footer a,
-footer a:visited,
-footer a:hover,
-footer a:active,
-footer a:focus {
-    color: #e4cfb4;
+.footer-content {
+    margin: 0;
 }
 
 .showlists {

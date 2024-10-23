@@ -3,16 +3,12 @@ import { html } from "https://esm.sh/htm@3.1.1/react";
 import { Card, ImageHeader, CardBody, CardFooter } from 'https://esm.sh/react-simple-card@latest';
 import shows from './data/shows.js';
 
-const Logo = () => html`
-<div className="logo sixtyfour-convergence-font">
-  <span className="logo--top">Dollbrick Improv Collective Kitchen</span>
-</div>
-`;
-
 const Header = () => html`
 <header>
   <h1>
-    <${Logo} />
+    <div className="logo sixtyfour-convergence-font">
+      <span className="logo--top">Dollbrick Improv Collective Kitchen</span>
+    </div>
   </h1>
 </header>
 `;
@@ -64,7 +60,7 @@ const Home = () => {
       <section className="main-content shows">
         <h1 class="center">Who are we?</h1>
         <p className="show-info">Hey there! We're Dollbrick, a Seattle-based improv group that's been making folks laugh since 2023.</p>
-        <p className="show-info">We love diving into long form improv, but we're not above some quick, silly games either. Our name came from a goofy improv scene—come see us live and maybe we'll spill the details. Expect lots of laughs and unexpected fun! 🧱🎭</p>
+        <p className="show-info">We love diving into long form improv, but we're not above some quick, silly games either. Our name came from a goofy improv scene—come see us live and maybe we'll spill the details. Expect lots of laughs and unexpected fun! ��</p>
         <div class="showlists">
           <${ShowList} shows=${futureShows} title="Upcoming Shows" />
           <${ShowList} shows=${pastShows} title="Past Shows" showMoreMessage=${false} />
@@ -77,8 +73,10 @@ const Home = () => {
 const Footer = () => {
   return html`
     <footer>
-      <div className="coffee-shop-footer">
-        <${Logo} />
+      <div class="center">
+        🥺<br />
+        👉👈<br />
+        <h5 class="footer-content">Come to a show?</h5>
       </div>
     </footer>
   `;

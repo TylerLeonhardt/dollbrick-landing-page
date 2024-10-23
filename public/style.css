@@ -12,6 +12,7 @@
 }
 
 /* Global Styles */
+
 * {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -65,6 +66,7 @@ a:focus:hover {
 }
 
 /* Header Styles */
+
 header {
     background: #f9f9f9;
     color: #fff;
@@ -90,6 +92,7 @@ header {
 }
 
 /* Main Content Styles */
+
 main {
     padding-top: 50px;
     padding-bottom: 50px;
@@ -101,29 +104,12 @@ main .main-content {
     padding: 60px 20px 0;
 }
 
-.main-content.shows h3 {
-    margin-bottom: 10px;
-}
-
-.main-content.shows h4 {
-    border-bottom: 2px #432d2d;
-    margin: 38px 0 18px;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-}
-
-.main-content.shows .show-info {
+.main-content p {
     font-size: .9rem;
 }
 
 .center {
     text-align: center;
-}
-
-.image-header {
-    max-height: 300px;
-    overflow: hidden;
 }
 
 .hero-banner {
@@ -139,12 +125,16 @@ main .main-content {
     width: 100%;
 }
 
-/* Footer Styles */
+.show-lists {
+    margin-top: 50px;
+}
 
-.footer-content {
+.show-image {
+    max-height: 300px;
+    overflow: hidden;
+}
+
+.show h2 {
     margin: 0;
 }
 
-.showlists {
-    margin-top: 50px;
-}

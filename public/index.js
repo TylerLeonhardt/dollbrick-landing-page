@@ -24,13 +24,13 @@ const Show = ({ show }) => {
   const isPast = show.date <= now;
 
   return html`
-    <${Card}>
-      <${ImageHeader} className="image-header" alt="testAlt" imageSrc="${show.image ?? './assets/images/hero-image.png'}" />
+    <${Card} className="show">
+      <${ImageHeader} className="show-image" alt="testAlt" imageSrc="${show.image ?? './assets/images/hero-image.png'}" />
       <${CardBody}>
         <h2 class="center">${show.title}</h2>
         ${show.jetCity ? html`<h5 class="center">In collaboration with <a target="_blank" href="https://www.jetcityimprov.org">Jet City Improv</a></h5>` : ''}
-        <p className="show-info">${show.date.toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })} - ${show.location}</p>
-        <p className="show-info">${show.description}</p>
+        <p>${show.date.toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })} - ${show.location}</p>
+        <p>${show.description}</p>
       </${CardBody}>
       ${!isPast && html`
         <${CardFooter}>
@@ -43,10 +43,8 @@ const Show = ({ show }) => {
 
 const ShowList = ({ shows, title, showMoreMessage = true }) => html`
   <h2>${title}</h2>
-  <div className="show">
-    ${shows.map(show => html`<${Show} show=${show} />`)}
-    ${showMoreMessage && (shows.length ? html`<h5>More shows coming soon...</h5>` : html`<h5>Upcoming shows coming soon...</h5>`)}
-  </div>
+  ${shows.map(show => html`<${Show} show=${show} />`)}
+  ${showMoreMessage && (shows.length ? html`<h5>More shows coming soon...</h5>` : html`<h5>Upcoming shows coming soon...</h5>`)}
 `;
 
 const Home = () => {
@@ -57,11 +55,11 @@ const Home = () => {
   return html`
     <React.Fragment>
       <${HeroBanner}/>
-      <section className="main-content shows">
+      <section className="main-content">
         <h1 class="center">Who are we?</h1>
-        <p className="show-info">Hey there! We're Dollbrick, a Seattle-based improv group that's been making folks laugh since 2023.</p>
-        <p className="show-info">We love diving into long form improv, but we're not above some quick, silly games either. Our name came from a goofy improv scene—come see us live and maybe we'll spill the details. Expect lots of laughs and unexpected fun! ��</p>
-        <div class="showlists">
+        <p>Hey there! We're Dollbrick, a Seattle-based improv group that's been making folks laugh since 2023.</p>
+        <p>We love diving into long form improv, but we're not above some quick, silly games either. Our name came from a goofy improv scene—come see us live and maybe we'll spill the details. Expect lots of laughs and unexpected fun! ��</p>
+        <div class="show-lists">
           <${ShowList} shows=${futureShows} title="Upcoming Shows" />
           <${ShowList} shows=${pastShows} title="Past Shows" showMoreMessage=${false} />
         </div>
@@ -76,7 +74,7 @@ const Footer = () => {
       <div class="center">
         🥺<br />
         👉👈<br />
-        <h5 class="footer-content">Come to a show?</h5>
+        <h5>Come to a show?</h5>
       </div>
     </footer>
   `;

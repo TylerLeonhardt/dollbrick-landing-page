@@ -58,7 +58,7 @@ const Home = () => {
       <section className="main-content">
         <h1 class="center">Who are we?</h1>
         <p>Hey there! We're Dollbrick, a Seattle-based improv group that's been making folks laugh since 2023.</p>
-        <p>We love diving into long form improv, but we're not above some quick, silly games either. Our name came from a goofy improv scene—come see us live and maybe we'll spill the details. Expect lots of laughs and unexpected fun! ��</p>
+        <p>We love diving into long form improv, but we're not above some quick, silly games either. Our name came from a goofy improv scene—come see us live and maybe we'll spill the details. Expect lots of laughs and unexpected fun! 🎭🧱</p>
         <div class="show-lists">
           <${ShowList} shows=${futureShows} title="Upcoming Shows" />
           <${ShowList} shows=${pastShows} title="Past Shows" showMoreMessage=${false} />

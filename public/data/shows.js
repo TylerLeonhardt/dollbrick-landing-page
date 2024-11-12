@@ -35,10 +35,12 @@ const shows = [
     {
         ...showcase303,
         date: new Date("2024-11-25T19:30:00-08:00"),
+        tickets: 'https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000JkOqnYAF',
     },
     {
         ...showcase303,
         date: new Date("2024-11-26T19:30:00-08:00"),
+        tickets: 'https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000JkM5qYAF',
     },
     {
         ...spoonsIn,

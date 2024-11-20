@@ -20,8 +20,8 @@ const spoonsIn = {
 };
 
 const showcase303 = {
-    title: "Advanced Formats Showcase",
-    description: "Details coming soon!",
+    title: "Genre Mash Up & Choose Your Own Adventure - Two Shows in One!",
+    description: "What if we told you that the advanced Improv 303 class invented two brand new improv formats that put you in the driver's seat of storytelling? In one, you'll choose your favorite entertainment genres, and witness the action play out spontaneously in front of you… with a twist. In the other, yours will be the voice of destiny that guides your chosen hero (or anti-hero) on an unforgettable adventure. These are tales that have never been told before, never shall be again - and only you have the power to shape them to your imagination.",
     jetCity: true,
     location: "Seattle, WA"
 };

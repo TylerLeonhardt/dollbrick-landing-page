@@ -23,7 +23,7 @@ const spoonsIn = {
 /** @type{Partial<Show>} */
 const indieProv = {
     title: "Indie Prov",
-    description: "Dollbrick is performing at Indie Prov! This unique event features a rotating roster of the city's finest independent improv teams and groups, coming together to create a night of laughter, creativity, and spontaneous entertainment. This is your chance to witness the magic of unscripted comedy while supporting the local improv community and embracing the vibrant spirit of creativity that defines Seattle's entertainment scene.",
+    description: "Dollbrick is performing as a part of Indie Prov! This unique event features a rotating roster of the city's finest independent improv teams and groups, coming together to create a night of laughter, creativity, and spontaneous entertainment. This is your chance to witness the magic of unscripted comedy while supporting the local improv community and embracing the vibrant spirit of creativity that defines Seattle's entertainment scene.",
     location: "Seattle, WA",
     image: './assets/images/indie-prov.png',
     jetCity: true,

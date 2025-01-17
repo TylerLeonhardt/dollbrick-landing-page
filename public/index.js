@@ -1,7 +1,10 @@
+import React from "https://esm.sh/react@18.3.1";
 import ReactDOM from "https://esm.sh/react-dom@18.3.1";
-import { html } from "https://esm.sh/htm@3.1.1/react";
+import htm from "https://esm.sh/htm@3.1.1";
 import { Card, ImageHeader, CardBody, CardFooter } from 'https://esm.sh/react-simple-card@latest';
 import shows from './data/shows.js';
+
+const html = htm.bind(React.createElement);
 
 const Header = () => html`
 <header>

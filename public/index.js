@@ -10,7 +10,7 @@ const Header = () => html`
 <header>
   <h1>
     <div className="logo sixtyfour-convergence-font">
-      <span className="logo--top">Dollbrick Improv Collective Kitchen</span>
+      <span className="logo--top">Dollbrick Improv Collective</span>
     </div>
   </h1>
 </header>

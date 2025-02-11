@@ -53,7 +53,7 @@ const ShowList = ({ shows, title, showMoreMessage = true }) => html`
 const Home = () => {
   const now = new Date();
   const futureShows = shows.filter(show => show.date > now);
-  const pastShows = shows.filter(show => show.date <= now).slice(-5);
+  const pastShows = shows.filter(show => show.date <= now).slice(-5).reverse();
 
   return html`
     <React.Fragment>

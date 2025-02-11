@@ -40,16 +40,6 @@ const showcase303 = {
 /** @type {Array<Show>} */
 const shows = [
     {
-        ...indieProv,
-        date: new Date("2025-01-10T19:30:00-08:00"),
-        tickets: 'https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000LYY4pYAH',
-    },
-    {
-        ...spoonsIn,
-        date: new Date(2025, 0, 26, 19, 30),
-        tickets: "https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000MDf8jYAD"
-    },
-    {
         ...spoonsIn,
         date: new Date(2025, 1, 14, 21, 30),
         tickets: "https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000MDU2wYAH"
@@ -76,6 +66,16 @@ const shows = [
         date: new Date("2024-11-26T19:30:00-08:00"),
         tickets: 'https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000JkM5qYAF',
     },
+    {
+        ...indieProv,
+        date: new Date("2025-01-10T19:30:00-08:00"),
+        tickets: 'https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000LYY4pYAH',
+    },
+    {
+        ...spoonsIn,
+        date: new Date(2025, 0, 26, 19, 30),
+        tickets: "https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000MDf8jYAD"
+    }
 ].sort((a, b) => a.date.getTime() - b.date.getTime());
 
 export default shows;

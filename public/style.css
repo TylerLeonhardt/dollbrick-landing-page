@@ -138,3 +138,19 @@ main .main-content {
     margin: 0;
 }
 
+.social-links {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.social-icon {
+    color: #333;
+    margin: 0 1rem;
+    transition: color 0.2s ease;
+}
+
+.social-icon:hover {
+    color: #a13e3e;
+}
+

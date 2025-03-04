@@ -37,13 +37,20 @@ const showcase303 = {
     location: "Seattle, WA"
 };
 
+/** @type{Show} */
+const vermillion = {
+    title: "Improv @ Vermillion",
+    description: "Come see Formerly Known As and Dollbrick perform improv at Vermillion - it's gonna be a night of laughs and good vibes!",
+    jetCity: false,
+    location: "Seattle, WA",
+    date: new Date(2025, 3, 9, 20, 0),
+    image: './assets/images/vermillion-fka.jpg',
+    tickets: "https://www.eventbrite.com/e/improv-vermillion-featuring-formerly-known-as-dollbrick-tickets-1265565553639?aff=oddtdtcreator"
+}
+
 /** @type {Array<Show>} */
 const shows = [
-    {
-        ...spoonsIn,
-        date: new Date(2025, 1, 14, 21, 30),
-        tickets: "https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000MDU2wYAH"
-    },
+    vermillion,
     {
         ...indieProv,
         date: new Date("2025-05-09T19:30:00-08:00"),
@@ -75,6 +82,11 @@ const shows = [
         ...spoonsIn,
         date: new Date(2025, 0, 26, 19, 30),
         tickets: "https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000MDf8jYAD"
+    },
+    {
+        ...spoonsIn,
+        date: new Date(2025, 1, 14, 21, 30),
+        tickets: "https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000MDU2wYAH"
     }
 ].sort((a, b) => a.date.getTime() - b.date.getTime());
 

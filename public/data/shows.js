@@ -40,7 +40,7 @@ const showcase303 = {
 /** @type{Show} */
 const vermillion = {
     title: "Improv @ Vermillion",
-    description: "Come see Formerly Known As and Dollbrick perform improv at Vermillion - it's gonna be a night of laughs and good vibes!",
+    description: "FREE SHOW! Come see Formerly Known As and Dollbrick perform improv at Vermillion - it's gonna be a night of laughs and good vibes!",
     jetCity: false,
     location: "Seattle, WA",
     date: new Date(2025, 3, 9, 20, 0),

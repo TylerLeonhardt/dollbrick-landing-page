@@ -43,7 +43,7 @@ const vermillion = {
     description: "FREE SHOW! Come see Formerly Known As and Dollbrick perform improv at Vermillion - it's gonna be a night of laughs and good vibes!",
     jetCity: false,
     location: "Seattle, WA",
-    date: new Date(2025, 3, 9, 20, 0),
+    date: new Date(2025, 2, 9, 20, 0),
     image: './assets/images/vermillion-fka.jpg',
     tickets: "https://www.eventbrite.com/e/improv-vermillion-featuring-formerly-known-as-dollbrick-tickets-1265565553639?aff=oddtdtcreator"
 }

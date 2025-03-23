@@ -1,6 +1,23 @@
 // @ts-check
 
 /**
+ * Helper function to create a date object from year, month, day, hour, and minute.
+ * @param {number} year 
+ * @param {'Jan' | 'Feb' | 'Mar' | 'Apr' | 'May' | 'Jun' | 'Jul' | 'Aug' | 'Sep' | 'Oct' | 'Nov' | 'Dec'} month 
+ * @param {number} day
+ * @param {number} hour
+ * @param {number} minute
+ * @param {'AM' | 'PM'} ampm - 'AM' or 'PM' to specify the time of day.
+ * @returns {Date}
+ */
+function getDate(year, month, day, hour, minute, ampm) {
+    const monthMap = { Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5, Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11};
+    hour = ampm === 'PM' && hour < 12 ? hour + 12 : hour;
+    hour = ampm === 'AM' && hour === 12 ? 0 : hour;
+    return new Date(year, monthMap[month], day, hour, minute);
+}
+
+/**
  * @typedef {Object} Show
  * @property {string} title - The title of the show.
  * @property {string} description - A description of the show.
@@ -11,7 +28,6 @@
  * @property {string} [tickets] - The URL to purchase tickets.
  */
 
-/** @type{Partial<Show>} */
 const spoonsIn = {
     title: "Spoons In: A Last Supper",
     description: "Several guests are brought together by a mysterious host—someone who knows each of them from their past. As the evening unfolds, a shocking revelation emerges: one of them will betray the host before the night is over. Can you guess who the betrayer is before it's too late? Very loosely based on a certain famous supper featuring betrayal.",
@@ -20,7 +36,6 @@ const spoonsIn = {
     jetCity: true,
 };
 
-/** @type{Partial<Show>} */
 const indieProv = {
     title: "Indie Prov",
     description: "Dollbrick is performing as a part of Indie Prov! This unique event features a rotating roster of the city's finest independent improv teams and groups, coming together to create a night of laughter, creativity, and spontaneous entertainment. This is your chance to witness the magic of unscripted comedy while supporting the local improv community and embracing the vibrant spirit of creativity that defines Seattle's entertainment scene.",
@@ -29,7 +44,6 @@ const indieProv = {
     jetCity: true,
 }
 
-/** @type{Partial<Show>} */
 const showcase303 = {
     title: "Genre Mash Up & Choose Your Own Adventure - Two Shows in One!",
     description: "What if we told you that the advanced Improv 303 class invented two brand new improv formats that put you in the driver's seat of storytelling? In one, you'll choose your favorite entertainment genres, and witness the action play out spontaneously in front of you… with a twist. In the other, yours will be the voice of destiny that guides your chosen hero (or anti-hero) on an unforgettable adventure. These are tales that have never been told before, never shall be again - and only you have the power to shape them to your imagination.",
@@ -37,7 +51,6 @@ const showcase303 = {
     location: "Seattle, WA"
 };
 
-/** @type{Partial<Show>} */
 const vermillion = {
     title: "Improv @ Vermillion",
     jetCity: false,
@@ -48,57 +61,56 @@ const vermillion = {
 const shows = [
     {
         ...vermillion,
-        description: "FREE SHOW! Come see Formerly Known As and Dollbrick perform improv at Vermillion - it's gonna be a night of laughs and good vibes!",
-        date: new Date(2025, 2, 9, 20, 0),
-        image: './assets/images/vermillion-fka.jpg',
-        tickets: "https://www.eventbrite.com/e/improv-vermillion-featuring-formerly-known-as-dollbrick-tickets-1265565553639?aff=oddtdtcreator"
-    },
-    {
-        ...vermillion,
         description: "FREE SHOW! Come see Them's The Breaks and Dollbrick perform improv at Vermillion - it's gonna be a night of laughs and good vibes!",
-        date: new Date("2025-05-04T19:30:00-09:00")
+        date: getDate(2025, 'May', 4, 7, 30, 'PM')
     },
     {
         ...indieProv,
-        date: new Date("2025-05-09T19:30:00-09:00"),
+        date: getDate(2025, 'May', 9, 7, 30, 'PM'),
         tickets: 'https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000LYmR7YAL',
     },
     {
         ...spoonsIn,
-        date: new Date("2025-05-09T21:30:00-09:00"),
+        date: getDate(2025, 'May', 9, 9, 30, 'PM'),
         image: './assets/images/spoons-in-5-9.png',
         tickets: 'https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000QgcbPYAR'
     },
 
     // Past
-
+    {
+        ...vermillion,
+        description: "FREE SHOW! Come see Formerly Known As and Dollbrick perform improv at Vermillion - it's gonna be a night of laughs and good vibes!",
+        date: getDate(2025, 'Mar', 9, 8, 0, 'PM'),
+        image: './assets/images/vermillion-fka.jpg',
+        tickets: "https://www.eventbrite.com/e/improv-vermillion-featuring-formerly-known-as-dollbrick-tickets-1265565553639?aff=oddtdtcreator"
+    },
     {
         ...spoonsIn,
-        date: new Date("2024-09-25T19:30:00-08:00"),
+        date: getDate(2024, 'Sep', 25, 7, 30, 'PM'),
     },
     {
         ...showcase303,
-        date: new Date("2024-11-25T19:30:00-08:00"),
+        date: getDate(2024, 'Nov', 25, 7, 30, 'PM'),
         tickets: 'https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000JkOqnYAF',
     },
     {
         ...showcase303,
-        date: new Date("2024-11-26T19:30:00-08:00"),
+        date: getDate(2024, 'Nov', 26, 7, 30, 'PM'),
         tickets: 'https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000JkM5qYAF',
     },
     {
         ...indieProv,
-        date: new Date("2025-01-10T19:30:00-08:00"),
+        date: getDate(2025, 'Jan', 10, 7, 30, 'PM'),
         tickets: 'https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000LYY4pYAH',
     },
     {
         ...spoonsIn,
-        date: new Date(2025, 0, 26, 19, 30),
+        date: getDate(2025, 'Jan', 26, 7, 30, 'PM'),
         tickets: "https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000MDf8jYAD"
     },
     {
         ...spoonsIn,
-        date: new Date(2025, 1, 14, 21, 30),
+        date: getDate(2025, 'Feb', 14, 9, 30, 'PM'),
         tickets: "https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000MDU2wYAH"
     }
 ].sort((a, b) => a.date.getTime() - b.date.getTime());

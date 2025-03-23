@@ -56,16 +56,16 @@ const shows = [
     {
         ...vermillion,
         description: "FREE SHOW! Come see Them's The Breaks and Dollbrick perform improv at Vermillion - it's gonna be a night of laughs and good vibes!",
-        date: new Date("2025-05-04T19:30:00-08:00")
+        date: new Date("2025-05-04T19:30:00-09:00")
     },
     {
         ...indieProv,
-        date: new Date("2025-05-09T19:30:00-08:00"),
+        date: new Date("2025-05-09T19:30:00-09:00"),
         tickets: 'https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000LYmR7YAL',
     },
     {
         ...spoonsIn,
-        date: new Date("2025-05-09T21:30:00-08:00"),
+        date: new Date("2025-05-09T21:30:00-09:00"),
         image: './assets/images/spoons-in-5-9.png',
         tickets: 'https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000QgcbPYAR'
     },

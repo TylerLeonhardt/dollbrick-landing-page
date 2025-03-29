@@ -62,7 +62,9 @@ const shows = [
     {
         ...vermillion,
         description: "FREE SHOW! Come see Them's The Breaks and Dollbrick perform improv at Vermillion - it's gonna be a night of laughs and good vibes!",
-        date: getDate(2025, 'May', 4, 7, 30, 'PM')
+        date: getDate(2025, 'May', 4, 7, 30, 'PM'),
+        image: './assets/images/verm-ttb-05042025.jpg',
+        tickets: 'https://www.eventbrite.com/e/improv-vermillion-featuring-thems-the-breaks-dollbrick-tickets-1304922511359'
     },
     {
         ...indieProv,

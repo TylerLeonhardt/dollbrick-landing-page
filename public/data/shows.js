@@ -31,7 +31,7 @@ function getDate(year, month, day, hour, minute, ampm) {
 const spoonsIn = {
     title: "Spoons In: A Last Supper",
     description: "Several guests are brought together by a mysterious host—someone who knows each of them from their past. As the evening unfolds, a shocking revelation emerges: one of them will betray the host before the night is over. Can you guess who the betrayer is before it's too late? Very loosely based on a certain famous supper featuring betrayal.",
-    location: "Seattle, WA",
+    location: 'The Drama Room @ University Heights Center',
     image: './assets/images/spoons-in.jpg',
     jetCity: true,
 };
@@ -39,7 +39,7 @@ const spoonsIn = {
 const indieProv = {
     title: "Indie Prov",
     description: "Dollbrick is performing as a part of Indie Prov! This unique event features a rotating roster of the city's finest independent improv teams and groups, coming together to create a night of laughter, creativity, and spontaneous entertainment. This is your chance to witness the magic of unscripted comedy while supporting the local improv community and embracing the vibrant spirit of creativity that defines Seattle's entertainment scene.",
-    location: "Seattle, WA",
+    location: 'The Drama Room @ University Heights Center',
     image: './assets/images/indie-prov.png',
     jetCity: true,
 }
@@ -48,24 +48,17 @@ const showcase303 = {
     title: "Genre Mash Up & Choose Your Own Adventure - Two Shows in One!",
     description: "What if we told you that the advanced Improv 303 class invented two brand new improv formats that put you in the driver's seat of storytelling? In one, you'll choose your favorite entertainment genres, and witness the action play out spontaneously in front of you… with a twist. In the other, yours will be the voice of destiny that guides your chosen hero (or anti-hero) on an unforgettable adventure. These are tales that have never been told before, never shall be again - and only you have the power to shape them to your imagination.",
     jetCity: true,
-    location: "Seattle, WA"
+    location: 'West of Lenin',
 };
 
 const vermillion = {
     title: "Improv @ Vermillion",
     jetCity: false,
-    location: "Seattle, WA"
+    location: "Vermillion Art Gallery & Bar"
 }
 
 /** @type {Array<Show>} */
 const shows = [
-    {
-        ...vermillion,
-        description: "FREE SHOW! Come see Them's The Breaks and Dollbrick perform improv at Vermillion - it's gonna be a night of laughs and good vibes!",
-        date: getDate(2025, 'May', 4, 7, 30, 'PM'),
-        image: './assets/images/verm-ttb-05042025.jpg',
-        tickets: 'https://www.eventbrite.com/e/improv-vermillion-featuring-thems-the-breaks-dollbrick-tickets-1304922511359'
-    },
     {
         ...indieProv,
         date: getDate(2025, 'May', 9, 7, 30, 'PM'),
@@ -73,12 +66,26 @@ const shows = [
     },
     {
         ...spoonsIn,
+        location: 'The Drama Room @ University Heights Center',
         date: getDate(2025, 'May', 9, 9, 30, 'PM'),
         image: './assets/images/spoons-in-5-9.png',
         tickets: 'https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000QgcbPYAR'
     },
+    {
+        ...spoonsIn,
+        location: 'West of Lenin',
+        date: getDate(2025, 'May', 9, 9, 30, 'PM'),
+        tickets: 'https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000QgcbPYAR'
+    },
 
     // Past
+    {
+        ...vermillion,
+        description: "FREE SHOW! Come see Them's The Breaks and Dollbrick perform improv at Vermillion - it's gonna be a night of laughs and good vibes!",
+        date: getDate(2025, 'May', 4, 7, 30, 'PM'),
+        image: './assets/images/verm-ttb-05042025.jpg',
+        tickets: 'https://www.eventbrite.com/e/improv-vermillion-featuring-thems-the-breaks-dollbrick-tickets-1304922511359'
+    },
     {
         ...vermillion,
         description: "FREE SHOW! Come see Formerly Known As and Dollbrick perform improv at Vermillion - it's gonna be a night of laughs and good vibes!",

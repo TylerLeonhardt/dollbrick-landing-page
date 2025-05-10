@@ -74,8 +74,7 @@ const shows = [
     {
         ...spoonsIn,
         location: 'West of Lenin',
-        date: getDate(2025, 'May', 9, 9, 30, 'PM'),
-        tickets: 'https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000QgcbPYAR'
+        date: getDate(2025, 'July', 24, 7, 30, 'PM'),
     },
 
     // Past

@@ -44,7 +44,7 @@ const Support = () => html`
       <div className="support-section">
         <${SocialCard}
           footer="Support us on Venmo"
-          link="#"
+          link="http://venmo.com/dollbrickimprov"
           qr="./assets/images/qr-venmo.png"
         />
       </div>

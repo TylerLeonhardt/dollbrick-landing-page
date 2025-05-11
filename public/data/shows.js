@@ -60,6 +60,12 @@ const vermillion = {
 /** @type {Array<Show>} */
 const shows = [
     {
+        ...spoonsIn,
+        location: 'West of Lenin',
+        date: getDate(2025, 'Jul', 24, 7, 30, 'PM'),
+    },
+    // Past
+    {
         ...indieProv,
         date: getDate(2025, 'May', 9, 7, 30, 'PM'),
         tickets: 'https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000LYmR7YAL',
@@ -71,13 +77,6 @@ const shows = [
         image: './assets/images/spoons-in-5-9.png',
         tickets: 'https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000QgcbPYAR'
     },
-    {
-        ...spoonsIn,
-        location: 'West of Lenin',
-        date: getDate(2025, 'July', 24, 7, 30, 'PM'),
-    },
-
-    // Past
     {
         ...vermillion,
         description: "FREE SHOW! Come see Them's The Breaks and Dollbrick perform improv at Vermillion - it's gonna be a night of laughs and good vibes!",

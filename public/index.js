@@ -22,10 +22,22 @@ const FacebookIcon = ({ className = '' }) => html`
   </a>
 `;
 
+const DonateIcon = ({ className = '' }) => html`
+  <a href="/support.html" className=${`social-icon ${className}`} aria-label="Support and donate">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+      <text x="50%" y="65%" text-anchor="middle" font-size="11" font-family="sans-serif" font-weight="bold">$</text>
+    </svg>
+  </a>
+`;
+
 const Header = () => html`
 <header>
   <h1>
-    <div className="logo sixtyfour-convergence-font">
+    <div 
+      className="logo sixtyfour-convergence-font" 
+      onClick=${() => window.location.href = '/'}
+    >
       <span className="logo--top">Dollbrick Improv Collective</span>
     </div>
   </h1>
@@ -81,6 +93,7 @@ const Home = () => {
         <div class="social-links">
           <${InstagramIcon} />
           <${FacebookIcon} />
+          <${DonateIcon} />
         </div>
         <div class="show-lists">
           <${ShowList} shows=${futureShows} title="Upcoming Shows" />

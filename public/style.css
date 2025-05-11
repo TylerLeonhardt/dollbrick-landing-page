@@ -30,7 +30,7 @@
     --show-border-color: #ccc;
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
     :root {
         --hero-banner-background: #a13e3e;
         --background-body: #121212;

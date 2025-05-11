@@ -29,10 +29,9 @@ function getDate(year, month, day, hour, minute, ampm) {
  */
 
 const spoonsIn = {
-    title: "Spoons In: A Last Supper",
+    title: "Spoons In: An Improvised Story of Betrayal",
     description: "Several guests are brought together by a mysterious host—someone who knows each of them from their past. As the evening unfolds, a shocking revelation emerges: one of them will betray the host before the night is over. Can you guess who the betrayer is before it's too late? Very loosely based on a certain famous supper featuring betrayal.",
-    location: 'The Drama Room @ University Heights Center',
-    image: './assets/images/spoons-in.jpg',
+    image: './assets/images/spoons-in.png',
     jetCity: true,
 };
 
@@ -74,7 +73,6 @@ const shows = [
         ...spoonsIn,
         location: 'The Drama Room @ University Heights Center',
         date: getDate(2025, 'May', 9, 9, 30, 'PM'),
-        image: './assets/images/spoons-in-5-9.png',
         tickets: 'https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000QgcbPYAR'
     },
     {
@@ -93,6 +91,7 @@ const shows = [
     },
     {
         ...spoonsIn,
+        location: 'The Drama Room @ University Heights Center',
         date: getDate(2024, 'Sep', 25, 7, 30, 'PM'),
     },
     {
@@ -112,11 +111,13 @@ const shows = [
     },
     {
         ...spoonsIn,
+        location: 'The Drama Room @ University Heights Center',
         date: getDate(2025, 'Jan', 26, 7, 30, 'PM'),
         tickets: "https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000MDf8jYAD"
     },
     {
         ...spoonsIn,
+        location: 'The Drama Room @ University Heights Center',
         date: getDate(2025, 'Feb', 14, 9, 30, 'PM'),
         tickets: "https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000MDU2wYAH"
     }

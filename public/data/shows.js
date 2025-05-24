@@ -59,6 +59,13 @@ const vermillion = {
 /** @type {Array<Show>} */
 const shows = [
     {
+        title: "Improv Kitchen - Featuring Dollbrick & The Superlatives!",
+        description: "A fun hour-long show featuring local Indie Prov groups! Join us in CSz Seattle's The Other Theatre for improv from your favorite local Indie Prov groups!",
+        location: 'The Other Theatre',
+        date: getDate(2025, 'May', 24, 8, 0, 'PM'),
+        tickets: 'https://comedysportzseattle.vbotickets.com/event/improv_kitchen_indie_comedy_cooking_up_something_good/149550'
+    },
+    {
         ...spoonsIn,
         location: 'West of Lenin',
         date: getDate(2025, 'Jul', 24, 7, 30, 'PM'),

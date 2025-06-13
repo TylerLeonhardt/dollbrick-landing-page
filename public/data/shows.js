@@ -59,6 +59,11 @@ const vermillion = {
 /** @type {Array<Show>} */
 const shows = [
     {
+        ...indieProv,
+        date: getDate(2025, 'Jun', 13, 7, 30, 'PM'),
+        tickets: 'https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000LYhCxYAL'
+    },
+    {
         title: "Improv Kitchen - Featuring Dollbrick & The Superlatives!",
         description: "A fun hour-long show featuring local Indie Prov groups! Join us in CSz Seattle's The Other Theatre for improv from your favorite local Indie Prov groups!",
         location: 'The Other Theatre',

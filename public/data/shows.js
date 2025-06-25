@@ -59,6 +59,11 @@ const vermillion = {
 /** @type {Array<Show>} */
 const shows = [
     {
+        ...vermillion,
+        description: "FREE SHOW! Come see Just Happy to Be Here and Dollbrick perform improv at Vermillion - it's gonna be a night of laughs and good vibes!",
+        date: getDate(2025, 'Jul', 13, 7, 30, 'PM')
+    },
+    {
         ...indieProv,
         date: getDate(2025, 'Jun', 13, 7, 30, 'PM'),
         tickets: 'https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000LYhCxYAL'

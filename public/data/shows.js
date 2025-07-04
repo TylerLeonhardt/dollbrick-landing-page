@@ -62,6 +62,7 @@ const shows = [
         ...vermillion,
         description: "FREE SHOW! Come see Just Happy to Be Here and Dollbrick perform improv at Vermillion - it's gonna be a night of laughs and good vibes!",
         date: getDate(2025, 'Jul', 13, 7, 30, 'PM'),
+        image: './assets/images/jhtbh-dollbrick-2025-07-13.jpg',
         tickets: 'https://www.eventbrite.com/e/improv-vermillion-tickets-1462398115129'
     },
     {

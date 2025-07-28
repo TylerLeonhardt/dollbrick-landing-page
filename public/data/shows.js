@@ -83,6 +83,13 @@ const shows = [
         date: getDate(2025, 'Jul', 24, 7, 30, 'PM'),
         tickets: 'https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000UP0MvYAL'
     },
+    {
+        title: "Improv Show featuring Formerly Known As",
+        description: "Come see Formerly Known As perform improv at The Rendezvous in the intimate Jewelbox Theater! There may be additional performers joining the show - stay tuned for more details!",
+        location: "The Rendezvous - Jewelbox Theater",
+        date: getDate(2025, 'Aug', 31, 7, 0, 'PM'),
+        jetCity: false
+    },
     // Past
     {
         ...indieProv,

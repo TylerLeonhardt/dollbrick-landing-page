@@ -59,6 +59,14 @@ const vermillion = {
 /** @type {Array<Show>} */
 const shows = [
     {
+        title: "Improv Live!",
+        description: "Ft. Formerly Known As, Regionals: The Musical, & Dollbrick. A fun 90min-long show featuring local Indie Prov groups!",
+        location: 'The Rendezvous',
+        date: getDate(2025, 'Aug', 31, 7, 0, 'PM'),
+        image: './assets/images/improv-live.jpg',
+        tickets: 'https://www.eventbrite.com/e/improv-live-ft-regionals-the-musical-dollbrick-august-31st-tickets-1571503482219'
+    },
+    {
         ...vermillion,
         description: "FREE SHOW! Come see Just Happy to Be Here and Dollbrick perform improv at Vermillion - it's gonna be a night of laughs and good vibes!",
         date: getDate(2025, 'Jul', 13, 7, 30, 'PM'),

@@ -59,9 +59,21 @@ const vermillion = {
 /** @type {Array<Show>} */
 const shows = [
     {
+        ...spoonsIn,
+        location: 'The Drama Room @ University Heights Center',
+        date: getDate(2025, 'Oct', 31, 9, 30, 'PM'),
+    },
+    {
+        ...vermillion,
+        description: "FREE SHOW! Come see They Might Be Ghosts and Dollbrick perform improv at Vermillion - it's gonna be a night of laughs and good vibes!",
+        date: getDate(2025, 'Sep', 7, 7, 0, 'PM'),
+        image: './assets/images/verm-tmbg-09072025.jpg',
+        tickets: 'https://www.eventbrite.com/e/improv-vermillion-featuring-they-might-be-ghosts-dollbrick-tickets-1627034486949'
+    },
+    {
         title: "Improv Live!",
         description: "Ft. Formerly Known As, Regionals: The Musical, & Dollbrick. A fun 90min-long show featuring local Indie Prov groups!",
-        location: 'The Rendezvous',
+        location: 'CSz Seattle',
         date: getDate(2025, 'Aug', 31, 7, 0, 'PM'),
         image: './assets/images/improv-live.jpg',
         tickets: 'https://www.eventbrite.com/e/improv-live-ft-regionals-the-musical-dollbrick-august-31st-tickets-1571503482219'

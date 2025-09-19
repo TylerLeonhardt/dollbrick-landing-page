@@ -59,6 +59,14 @@ const vermillion = {
 /** @type {Array<Show>} */
 const shows = [
     {
+        title: "A Forced Perspective",
+        description: "When the lines between life and art blur, something magical can happen. Sometimes it can create whole new worlds, and sometimes it can help us to discover ourselves. Join us for an evening in the art gallery to see what you might discover.",
+        location: 'The Drama Room @ University Heights Center',
+        date: getDate(2025, 'Sep', 26, 9, 30, 'PM'),
+        image: './assets/images/forced-perspective-09262025.png',
+        tickets: 'https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/events/a0OVW0000046GKj2AM'
+    },
+    {
         ...spoonsIn,
         location: 'The Drama Room @ University Heights Center',
         date: getDate(2025, 'Oct', 31, 9, 30, 'PM'),

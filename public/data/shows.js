@@ -59,24 +59,26 @@ const vermillion = {
 /** @type {Array<Show>} */
 const shows = [
     {
+        ...spoonsIn,
+        location: 'The Drama Room @ University Heights Center',
+        date: getDate(2025, 'Oct', 31, 9, 30, 'PM'),
+        tickets: 'https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000azEVxYAM'
+    },
+    {
+        ...vermillion,
+        description: "FREE SHOW! Come see Stay Silly and Dollbrick perform improv at Vermillion - it's gonna be a night of laughs and good vibes!",
+        date: getDate(2025, 'Nov', 1, 7, 30, 'PM'),
+        image: './assets/images/verm-stay-silly.jpg',
+        tickets: 'https://www.eventbrite.com/e/improv-vermillion-featuring-stay-silly-dollbrick-tickets-1840381964999?aff=oddtdtcreator'
+    },
+    // Past
+    {
         title: "A Forced Perspective",
         description: "When the lines between life and art blur, something magical can happen. Sometimes it can create whole new worlds, and sometimes it can help us to discover ourselves. Join us for an evening in the art gallery to see what you might discover.",
         location: 'The Drama Room @ University Heights Center',
         date: getDate(2025, 'Sep', 26, 9, 30, 'PM'),
         image: './assets/images/forced-perspective-09262025.png',
         tickets: 'https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/events/a0OVW0000046GKj2AM'
-    },
-    {
-        ...spoonsIn,
-        location: 'The Drama Room @ University Heights Center',
-        date: getDate(2025, 'Oct', 31, 9, 30, 'PM'),
-    },
-    {
-        ...vermillion,
-        description: "FREE SHOW! Come see They Might Be Ghosts and Dollbrick perform improv at Vermillion - it's gonna be a night of laughs and good vibes!",
-        date: getDate(2025, 'Sep', 7, 7, 0, 'PM'),
-        image: './assets/images/verm-tmbg-09072025.jpg',
-        tickets: 'https://www.eventbrite.com/e/improv-vermillion-featuring-they-might-be-ghosts-dollbrick-tickets-1627034486949'
     },
     {
         title: "Improv Live!",
@@ -111,7 +113,13 @@ const shows = [
         date: getDate(2025, 'Jul', 24, 7, 30, 'PM'),
         tickets: 'https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000UP0MvYAL'
     },
-    // Past
+    {
+        ...vermillion,
+        description: "FREE SHOW! Come see They Might Be Ghosts and Dollbrick perform improv at Vermillion - it's gonna be a night of laughs and good vibes!",
+        date: getDate(2025, 'Sep', 7, 7, 0, 'PM'),
+        image: './assets/images/verm-tmbg-09072025.jpg',
+        tickets: 'https://www.eventbrite.com/e/improv-vermillion-featuring-they-might-be-ghosts-dollbrick-tickets-1627034486949'
+    },
     {
         ...indieProv,
         date: getDate(2025, 'May', 9, 7, 30, 'PM'),

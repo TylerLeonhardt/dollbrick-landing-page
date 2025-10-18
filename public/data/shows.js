@@ -67,7 +67,7 @@ const shows = [
     {
         ...vermillion,
         description: "FREE SHOW! Come see Stay Silly and Dollbrick perform improv at Vermillion - it's gonna be a night of laughs and good vibes!",
-        date: getDate(2025, 'Nov', 1, 7, 30, 'PM'),
+        date: getDate(2025, 'Nov', 2, 7, 0, 'PM'),
         image: './assets/images/verm-stay-silly.jpg',
         tickets: 'https://www.eventbrite.com/e/improv-vermillion-featuring-stay-silly-dollbrick-tickets-1840381964999?aff=oddtdtcreator'
     },

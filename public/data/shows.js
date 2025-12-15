@@ -71,6 +71,13 @@ const shows = [
         image: './assets/images/verm-stay-silly.jpg',
         tickets: 'https://www.eventbrite.com/e/improv-vermillion-featuring-stay-silly-dollbrick-tickets-1840381964999?aff=oddtdtcreator'
     },
+    {
+        ...vermillion,
+        description: "FREE SHOW! Come see PD&J and Dollbrick perform improv at Vermillion - it's gonna be a night of laughs and good vibes!",
+        date: getDate(2025, 'Dec', 28, 7, 0, 'PM'),
+        image: './assets/images/vermillion_12_28_25.jpeg',
+        tickets: 'https://www.eventbrite.com/e/improv-vermillion-tickets-1977847324590?utm-campaign=social&utm-content=attendeeshare&utm-medium=discovery&utm-term=listing&utm-source=cp&aff=ebdsshcopyurl'
+    },
     // Past
     {
         title: "A Forced Perspective",

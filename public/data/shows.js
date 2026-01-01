@@ -188,6 +188,7 @@ const shows = [
         ...spoonsIn,
         location: 'CSz Seattle - Home of Comedy Sportz',
         date: getDate(2026, 'Feb', 15, 7, 0, 'PM'),
+        image: './assets/images/spoons-in-csz-02-15-26.jpg',
         jetCity: false,
     }
 ].sort((a, b) => a.date.getTime() - b.date.getTime());

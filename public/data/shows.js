@@ -90,7 +90,7 @@ const shows = [
     {
         title: "Improv Live!",
         description: "Ft. Formerly Known As, Regionals: The Musical, & Dollbrick. A fun 90min-long show featuring local Indie Prov groups!",
-        location: 'CSz Seattle',
+        location: 'The Atlas Theater @ CSz Seattle',
         date: getDate(2025, 'Aug', 31, 7, 0, 'PM'),
         image: './assets/images/improv-live.jpg',
         tickets: 'https://www.eventbrite.com/e/improv-live-ft-regionals-the-musical-dollbrick-august-31st-tickets-1571503482219'
@@ -186,7 +186,7 @@ const shows = [
     },
     {
         ...spoonsIn,
-        location: 'CSz Seattle - Home of Comedy Sportz',
+        location: 'The Atlas Theater @ CSz Seattle',
         date: getDate(2026, 'Feb', 15, 7, 0, 'PM'),
         image: './assets/images/spoons-in-csz-02-15-26.jpg',
         jetCity: false,

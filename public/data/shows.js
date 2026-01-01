@@ -183,6 +183,13 @@ const shows = [
         location: 'The Drama Room @ University Heights Center',
         date: getDate(2025, 'Feb', 14, 9, 30, 'PM'),
         tickets: "https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000MDU2wYAH"
+    },
+    {
+        ...spoonsIn,
+        location: 'CSz Seattle - Home of Comedy Sportz',
+        date: getDate(2026, 'Feb', 15, 7, 0, 'PM'),
+        image: './assets/images/spoons-in-csz-02-15-26.jpg',
+        jetCity: false,
     }
 ].sort((a, b) => a.date.getTime() - b.date.getTime());
 

@@ -190,7 +190,7 @@ const shows = [
         date: getDate(2026, 'Feb', 15, 7, 0, 'PM'),
         image: './assets/images/spoons-in-csz-02-15-26.jpg',
         jetCity: false,
-        tickets: 'https://dollbrick.click4tix.com/'
+        tickets: 'https://click4tix.net/patrons/ticketDetails.html?_id=134'
     }
 ].sort((a, b) => a.date.getTime() - b.date.getTime());
 

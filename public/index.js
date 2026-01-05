@@ -52,22 +52,41 @@ const HeroBanner = () => html`
 
 const ShowDialog = ({ show, onClose }) => {
   const dialogRef = React.useRef(null);
-
-  React.useEffect(() => {
-    if (show && dialogRef.current) {
-      dialogRef.current.showModal();
-    } else if (!show && dialogRef.current) {
-      dialogRef.current.close();
-    }
-  }, [show]);
-
-  const handleClose = () => {
+  const ticketLinkRef = React.useRef(null);
+  const handleClose = React.useCallback(() => {
     if (window.history.state?.showId) {
       window.history.back();
     } else {
       onClose();
     }
-  };
+  }, [onClose]);
+
+  React.useEffect(() => {
+    if (show && dialogRef.current) {
+      dialogRef.current.showModal();
+      // Focus the ticket link after the dialog opens, if it exists
+      if (show.tickets && ticketLinkRef.current) {
+        setTimeout(() => {
+          ticketLinkRef.current?.focus();
+        }, 0);
+      }
+    } else if (!show && dialogRef.current) {
+      dialogRef.current.close();
+    }
+  }, [show]);
+
+  React.useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+
+    const handleCancel = (e) => {
+      e.preventDefault();
+      handleClose();
+    };
+
+    dialog.addEventListener('cancel', handleCancel);
+    return () => dialog.removeEventListener('cancel', handleCancel);
+  }, [handleClose]);
 
   const handleBackdropClick = (e) => {
     if (e.target === dialogRef.current) {
@@ -94,7 +113,7 @@ const ShowDialog = ({ show, onClose }) => {
           </${CardBody}>
           ${!isPast && html`
             <${CardFooter}>
-              <a disabled=${!!show.tickets} href=${show.tickets}>${!show.tickets ? 'Tickets on sale soon!' : 'Tickets'}</a>
+              <a ref=${ticketLinkRef} disabled=${!!show.tickets} href=${show.tickets}>${!show.tickets ? 'Tickets on sale soon!' : 'Tickets'}</a>
             </${CardFooter}>
           `}
         </${Card}>

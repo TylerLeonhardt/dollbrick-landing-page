@@ -169,10 +169,30 @@ main .main-content {
     overflow: hidden;
 }
 
+.show-dialog .show-image {
+    max-height: 70vh;
+}
+
 .show {
     background: var(--show-background-color) !important;
     border: 1px solid var(--show-border-color) !important;
     color: var(--text-color-body) !important;
+}
+
+.show-lists .show {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.show-lists .show:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+@media (prefers-color-scheme: dark) {
+    .show-lists .show:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
 }
 
 .show .card__footer {
@@ -245,4 +265,78 @@ main .main-content {
     background-size: contain;
     min-height: 200px;
     width: 100%;
+}
+
+/* Dialog Styles */
+
+.show-dialog {
+    background: transparent;
+    border: none;
+    max-width: 90vw;
+    max-height: 90vh;
+    padding: 0;
+    overflow: visible;
+}
+
+.show-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+}
+
+@media (prefers-color-scheme: dark) {
+    .show-dialog::backdrop {
+        background: rgba(0, 0, 0, 0.85);
+    }
+}
+
+.show-dialog-content {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.show-dialog-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--show-background-color);
+    border: 2px solid var(--show-border-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    color: var(--text-color-body);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: all 0.2s ease;
+}
+
+.show-dialog-close::before,
+.show-dialog-close::after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 2px;
+    background: currentColor;
+}
+
+.show-dialog-close::before {
+    transform: rotate(45deg);
+}
+
+.show-dialog-close::after {
+    transform: rotate(-45deg);
+}
+
+.show-dialog-close:hover {
+    background: var(--logo-color);
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.show-dialog .show {
+    cursor: default;
 }

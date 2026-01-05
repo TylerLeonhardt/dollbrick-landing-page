@@ -50,38 +50,172 @@ const HeroBanner = () => html`
   </section>
 `;
 
-const Show = ({ show }) => {
+const ShowDialog = ({ show, onClose }) => {
+  const dialogRef = React.useRef(null);
+
+  React.useEffect(() => {
+    if (show && dialogRef.current) {
+      dialogRef.current.showModal();
+    } else if (!show && dialogRef.current) {
+      dialogRef.current.close();
+    }
+  }, [show]);
+
+  const handleClose = () => {
+    if (window.history.state?.showId) {
+      window.history.back();
+    } else {
+      onClose();
+    }
+  };
+
+  const handleBackdropClick = (e) => {
+    if (e.target === dialogRef.current) {
+      handleClose();
+    }
+  };
+
+  if (!show) return null;
+
   const now = new Date();
   const isPast = show.date <= now;
 
   return html`
-    <${Card} className="show">
-      <${ImageHeader} className="show-image" alt="testAlt" imageSrc="${show.image ?? './assets/images/hero-image.png'}" />
-      <${CardBody}>
-        <h2 class="center">${show.title}</h2>
-        ${show.jetCity ? html`<h5 class="center">In collaboration with <a target="_blank" href="https://www.jetcityimprov.org">Jet City Improv</a></h5>` : ''}
-        <p>${show.date.toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })} - ${show.location}</p>
-        <p>${show.description}</p>
-      </${CardBody}>
-      ${!isPast && html`
-        <${CardFooter}>
-          <a disabled=${!!show.tickets} href=${show.tickets}>${!show.tickets ? 'Tickets on sale soon!' : 'Tickets'}</a>
-        </${CardFooter}>
-      `}
-    </${Card}>
+    <dialog ref=${dialogRef} className="show-dialog" onClick=${handleBackdropClick}>
+      <div className="show-dialog-content">
+        <button className="show-dialog-close" onClick=${handleClose} aria-label="Close dialog"></button>
+        <${Card} className="show">
+          <${ImageHeader} className="show-image" alt=${show.title} imageSrc="${show.image ?? './assets/images/hero-image.png'}" />
+          <${CardBody}>
+            <h2 class="center">${show.title}</h2>
+            ${show.jetCity ? html`<h5 class="center">In collaboration with <a target="_blank" href="https://www.jetcityimprov.org">Jet City Improv</a></h5>` : ''}
+            <p>${show.date.toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })} - ${show.location}</p>
+            <p>${show.description}</p>
+          </${CardBody}>
+          ${!isPast && html`
+            <${CardFooter}>
+              <a disabled=${!!show.tickets} href=${show.tickets}>${!show.tickets ? 'Tickets on sale soon!' : 'Tickets'}</a>
+            </${CardFooter}>
+          `}
+        </${Card}>
+      </div>
+    </dialog>
   `;
 };
 
-const ShowList = ({ shows, title, showMoreMessage = true }) => html`
+const Show = ({ show, onClick }) => {
+  const now = new Date();
+  const isPast = show.date <= now;
+
+  const handleClick = (e) => {
+    // Prevent clicks on links from triggering the card click
+    if (e.target.tagName === 'A' || e.target.closest('a')) {
+      return;
+    }
+    onClick(show);
+  };
+
+  return html`
+    <div onClick=${handleClick} style=${{ cursor: 'pointer' }}>
+      <${Card} className="show">
+        <${ImageHeader} className="show-image" alt="testAlt" imageSrc="${show.image ?? './assets/images/hero-image.png'}" />
+        <${CardBody}>
+          <h2 class="center">${show.title}</h2>
+          ${show.jetCity ? html`<h5 class="center">In collaboration with <a target="_blank" href="https://www.jetcityimprov.org">Jet City Improv</a></h5>` : ''}
+          <p>${show.date.toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })} - ${show.location}</p>
+          <p>${show.description}</p>
+        </${CardBody}>
+        ${!isPast && html`
+          <${CardFooter}>
+            <a disabled=${!!show.tickets} href=${show.tickets} onClick=${(e) => e.stopPropagation()}>${!show.tickets ? 'Tickets on sale soon!' : 'Tickets'}</a>
+          </${CardFooter}>
+        `}
+      </${Card}>
+    </div>
+  `;
+};
+
+const ShowList = ({ shows, title, showMoreMessage = true, onShowClick }) => html`
   <h2>${title}</h2>
-  ${shows.map(show => html`<${Show} show=${show} />`)}
+  ${shows.map(show => html`<${Show} show=${show} onClick=${onShowClick} />`)}
   ${showMoreMessage && (shows.length ? html`<h5>More shows coming soon...</h5>` : html`<h5>Upcoming shows coming soon...</h5>`)}
 `;
 
 const Home = () => {
+  const [selectedShow, setSelectedShow] = React.useState(null);
   const now = new Date();
   const futureShows = shows.filter(show => show.date > now);
   const pastShows = shows.filter(show => show.date <= now).slice(-5).reverse();
+
+  // Handle URL parameter on initial load and popstate
+  React.useEffect(() => {
+    const handleUrlChange = () => {
+      const params = new URLSearchParams(window.location.search);
+      const showId = params.get('id');
+      if (showId) {
+        const show = shows.find(s => s.id === showId);
+        if (show) {
+          setSelectedShow(show);
+          updateMetaTags(show);
+        }
+      } else {
+        setSelectedShow(null);
+        resetMetaTags();
+      }
+    };
+
+    // Check URL on mount
+    handleUrlChange();
+
+    // Listen for back/forward navigation
+    window.addEventListener('popstate', handleUrlChange);
+    return () => window.removeEventListener('popstate', handleUrlChange);
+  }, []);
+
+  const updateMetaTags = (show) => {
+    const formattedDate = show.date.toLocaleString('en-US', { 
+      weekday: 'short', 
+      month: 'short', 
+      day: 'numeric', 
+      hour: 'numeric', 
+      minute: 'numeric', 
+      hour12: true 
+    });
+    const description = `${formattedDate} - ${show.location}. ${show.description}`;
+    const image = show.image ? `https://dollbrick.com/${show.image}` : 'https://dollbrick.com/assets/images/hero-image.png';
+
+    document.querySelector('meta[property="og:title"]').setAttribute('content', show.title);
+    document.querySelector('meta[property="og:description"]').setAttribute('content', description);
+    document.querySelector('meta[property="og:image"]').setAttribute('content', image);
+    document.querySelector('meta[name="twitter:title"]').setAttribute('content', show.title);
+    document.querySelector('meta[name="twitter:description"]').setAttribute('content', description);
+    document.querySelector('meta[name="twitter:image"]').setAttribute('content', image);
+    document.querySelector('meta[name="description"]').setAttribute('content', description);
+    document.title = `${show.title} - Dollbrick Improv Collective`;
+  };
+
+  const resetMetaTags = () => {
+    document.querySelector('meta[property="og:title"]').setAttribute('content', 'Dollbrick Improv Collective');
+    document.querySelector('meta[property="og:description"]').setAttribute('content', "Seattle-based improv group that's been making folks laugh since 2023.");
+    document.querySelector('meta[property="og:image"]').setAttribute('content', 'https://dollbrick.com/assets/images/hero-image.png');
+    document.querySelector('meta[name="twitter:title"]').setAttribute('content', 'Dollbrick Improv Collective');
+    document.querySelector('meta[name="twitter:description"]').setAttribute('content', "Seattle-based improv group that's been making folks laugh since 2023.");
+    document.querySelector('meta[name="twitter:image"]').setAttribute('content', 'https://dollbrick.com/assets/images/hero-image.png');
+    document.querySelector('meta[name="description"]').setAttribute('content', "Seattle-based improv group that's been making folks laugh since 2023.");
+    document.title = 'Dollbrick Improv Collective';
+  };
+
+  const handleShowClick = (show) => {
+    window.history.pushState({ showId: show.id }, '', `?id=${show.id}`);
+    setSelectedShow(show);
+    updateMetaTags(show);
+  };
+
+  const handleDialogClose = () => {
+    setSelectedShow(null);
+    resetMetaTags();
+    window.history.pushState({}, '', '/');
+  };
 
   return html`
     <React.Fragment>
@@ -96,10 +230,11 @@ const Home = () => {
           <${DonateIcon} />
         </div>
         <div class="show-lists">
-          <${ShowList} shows=${futureShows} title="Upcoming Shows" />
-          <${ShowList} shows=${pastShows} title="Past Shows" showMoreMessage=${false} />
+          <${ShowList} shows=${futureShows} title="Upcoming Shows" onShowClick=${handleShowClick} />
+          <${ShowList} shows=${pastShows} title="Past Shows" showMoreMessage=${false} onShowClick=${handleShowClick} />
         </div>
       </section>
+      <${ShowDialog} show=${selectedShow} onClose=${handleDialogClose} />
     </React.Fragment>
   `;
 };

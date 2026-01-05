@@ -19,6 +19,7 @@ function getDate(year, month, day, hour, minute, ampm) {
 
 /**
  * @typedef {Object} Show
+ * @property {string} id - The unique identifier for the show.
  * @property {string} title - The title of the show.
  * @property {string} description - A description of the show.
  * @property {string} location - The location of the show.
@@ -60,12 +61,14 @@ const vermillion = {
 const shows = [
     {
         ...spoonsIn,
+        id: 'spoons-in-20251031',
         location: 'The Drama Room @ University Heights Center',
         date: getDate(2025, 'Oct', 31, 9, 30, 'PM'),
         tickets: 'https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000azEVxYAM'
     },
     {
         ...vermillion,
+        id: 'vermillion-20251102',
         description: "FREE SHOW! Come see Stay Silly and Dollbrick perform improv at Vermillion - it's gonna be a night of laughs and good vibes!",
         date: getDate(2025, 'Nov', 2, 7, 0, 'PM'),
         image: './assets/images/verm-stay-silly.jpg',
@@ -73,6 +76,7 @@ const shows = [
     },
     {
         ...vermillion,
+        id: 'vermillion-20251228',
         description: "FREE SHOW! Come see PD&J and Dollbrick perform improv at Vermillion - it's gonna be a night of laughs and good vibes!",
         date: getDate(2025, 'Dec', 28, 7, 0, 'PM'),
         image: './assets/images/vermillion_12_28_25.jpeg',
@@ -80,6 +84,7 @@ const shows = [
     },
     // Past
     {
+        id: 'forced-perspective-20250926',
         title: "A Forced Perspective",
         description: "When the lines between life and art blur, something magical can happen. Sometimes it can create whole new worlds, and sometimes it can help us to discover ourselves. Join us for an evening in the art gallery to see what you might discover.",
         location: 'The Drama Room @ University Heights Center',
@@ -88,6 +93,7 @@ const shows = [
         tickets: 'https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/events/a0OVW0000046GKj2AM'
     },
     {
+        id: 'improv-live-20250831',
         title: "Improv Live!",
         description: "Ft. Formerly Known As, Regionals: The Musical, & Dollbrick. A fun 90min-long show featuring local Indie Prov groups!",
         location: 'The Atlas Theater @ CSz Seattle',
@@ -97,6 +103,7 @@ const shows = [
     },
     {
         ...vermillion,
+        id: 'vermillion-20250713',
         description: "FREE SHOW! Come see Just Happy to Be Here and Dollbrick perform improv at Vermillion - it's gonna be a night of laughs and good vibes!",
         date: getDate(2025, 'Jul', 13, 7, 30, 'PM'),
         image: './assets/images/jhtbh-dollbrick-2025-07-13.jpg',
@@ -104,10 +111,12 @@ const shows = [
     },
     {
         ...indieProv,
+        id: 'indie-prov-20250613',
         date: getDate(2025, 'Jun', 13, 7, 30, 'PM'),
         tickets: 'https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000LYhCxYAL'
     },
     {
+        id: 'improv-kitchen-20250524',
         title: "Improv Kitchen - Featuring Dollbrick & The Superlatives!",
         description: "A fun hour-long show featuring local Indie Prov groups! Join us in CSz Seattle's The Other Theatre for improv from your favorite local Indie Prov groups!",
         location: 'The Other Theatre',
@@ -116,12 +125,14 @@ const shows = [
     },
     {
         ...spoonsIn,
+        id: 'spoons-in-20250724',
         location: 'West of Lenin',
         date: getDate(2025, 'Jul', 24, 7, 30, 'PM'),
         tickets: 'https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000UP0MvYAL'
     },
     {
         ...vermillion,
+        id: 'vermillion-20250907',
         description: "FREE SHOW! Come see They Might Be Ghosts and Dollbrick perform improv at Vermillion - it's gonna be a night of laughs and good vibes!",
         date: getDate(2025, 'Sep', 7, 7, 0, 'PM'),
         image: './assets/images/verm-tmbg-09072025.jpg',
@@ -129,17 +140,20 @@ const shows = [
     },
     {
         ...indieProv,
+        id: 'indie-prov-20250509',
         date: getDate(2025, 'May', 9, 7, 30, 'PM'),
         tickets: 'https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000LYmR7YAL',
     },
     {
         ...spoonsIn,
+        id: 'spoons-in-20250509',
         location: 'The Drama Room @ University Heights Center',
         date: getDate(2025, 'May', 9, 9, 30, 'PM'),
         tickets: 'https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000QgcbPYAR'
     },
     {
         ...vermillion,
+        id: 'vermillion-20250504',
         description: "FREE SHOW! Come see Them's The Breaks and Dollbrick perform improv at Vermillion - it's gonna be a night of laughs and good vibes!",
         date: getDate(2025, 'May', 4, 7, 30, 'PM'),
         image: './assets/images/verm-ttb-05042025.jpg',
@@ -147,6 +161,7 @@ const shows = [
     },
     {
         ...vermillion,
+        id: 'vermillion-20250309',
         description: "FREE SHOW! Come see Formerly Known As and Dollbrick perform improv at Vermillion - it's gonna be a night of laughs and good vibes!",
         date: getDate(2025, 'Mar', 9, 8, 0, 'PM'),
         image: './assets/images/vermillion-fka.jpg',
@@ -154,38 +169,45 @@ const shows = [
     },
     {
         ...spoonsIn,
+        id: 'spoons-in-20240925',
         location: 'The Drama Room @ University Heights Center',
         date: getDate(2024, 'Sep', 25, 7, 30, 'PM'),
     },
     {
         ...showcase303,
+        id: 'showcase-303-20241125',
         date: getDate(2024, 'Nov', 25, 7, 30, 'PM'),
         tickets: 'https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000JkOqnYAF',
     },
     {
         ...showcase303,
+        id: 'showcase-303-20241126',
         date: getDate(2024, 'Nov', 26, 7, 30, 'PM'),
         tickets: 'https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000JkM5qYAF',
     },
     {
         ...indieProv,
+        id: 'indie-prov-20250110',
         date: getDate(2025, 'Jan', 10, 7, 30, 'PM'),
         tickets: 'https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000LYY4pYAH',
     },
     {
         ...spoonsIn,
+        id: 'spoons-in-20250126',
         location: 'The Drama Room @ University Heights Center',
         date: getDate(2025, 'Jan', 26, 7, 30, 'PM'),
         tickets: "https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000MDf8jYAD"
     },
     {
         ...spoonsIn,
+        id: 'spoons-in-20250214',
         location: 'The Drama Room @ University Heights Center',
         date: getDate(2025, 'Feb', 14, 9, 30, 'PM'),
         tickets: "https://jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp#/instances/a03VW00000MDU2wYAH"
     },
     {
         ...spoonsIn,
+        id: 'spoons-in-20260215',
         location: 'The Atlas Theater @ CSz Seattle',
         date: getDate(2026, 'Feb', 15, 7, 0, 'PM'),
         image: './assets/images/spoons-in-csz-02-15-26.jpg',

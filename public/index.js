@@ -202,10 +202,12 @@ const Home = () => {
     });
     const description = `${formattedDate} - ${show.location}. ${show.description}`;
     const image = show.image ? `https://dollbrick.com/${show.image}` : 'https://dollbrick.com/assets/images/hero-image.png';
+    const url = `https://dollbrick.com/?id=${show.id}`;
 
     document.querySelector('meta[property="og:title"]').setAttribute('content', show.title);
     document.querySelector('meta[property="og:description"]').setAttribute('content', description);
     document.querySelector('meta[property="og:image"]').setAttribute('content', image);
+    document.querySelector('meta[property="og:url"]').setAttribute('content', url);
     document.querySelector('meta[name="twitter:title"]').setAttribute('content', show.title);
     document.querySelector('meta[name="twitter:description"]').setAttribute('content', description);
     document.querySelector('meta[name="twitter:image"]').setAttribute('content', image);
@@ -217,6 +219,7 @@ const Home = () => {
     document.querySelector('meta[property="og:title"]').setAttribute('content', 'Dollbrick Improv Collective');
     document.querySelector('meta[property="og:description"]').setAttribute('content', "Seattle-based improv group that's been making folks laugh since 2023.");
     document.querySelector('meta[property="og:image"]').setAttribute('content', 'https://dollbrick.com/assets/images/hero-image.png');
+    document.querySelector('meta[property="og:url"]').setAttribute('content', 'https://dollbrick.com');
     document.querySelector('meta[name="twitter:title"]').setAttribute('content', 'Dollbrick Improv Collective');
     document.querySelector('meta[name="twitter:description"]').setAttribute('content', "Seattle-based improv group that's been making folks laugh since 2023.");
     document.querySelector('meta[name="twitter:image"]').setAttribute('content', 'https://dollbrick.com/assets/images/hero-image.png');

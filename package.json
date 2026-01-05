@@ -4,6 +4,7 @@
     "description": "A simple React site that acts as a landing page for Dollbrick",
     "private": true,
     "main": "index.js",
+    "type": "module",
     "scripts": {
         "start": "npx serve public/"
     },

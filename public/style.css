@@ -295,7 +295,6 @@ main .main-content {
     max-width: 600px;
     max-height: 95vh;
     margin: 0 auto;
-    overflow-y: auto;
     display: flex;
     flex-direction: column;
 }
@@ -344,4 +343,8 @@ main .main-content {
 
 .show-dialog .show {
     cursor: default;
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    overflow: hidden;
 }

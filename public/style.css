@@ -170,7 +170,6 @@ main .main-content {
 }
 
 .show-dialog .show-image {
-    max-height: 40vh;
     flex-shrink: 1;
 }
 

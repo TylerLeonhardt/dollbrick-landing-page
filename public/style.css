@@ -170,7 +170,8 @@ main .main-content {
 }
 
 .show-dialog .show-image {
-    max-height: 70vh;
+    max-height: none;
+    flex-shrink: 1;
 }
 
 .show {
@@ -273,7 +274,7 @@ main .main-content {
     background: transparent;
     border: none;
     max-width: 90vw;
-    max-height: 90vh;
+    max-height: 95vh;
     padding: 0;
     overflow: visible;
 }
@@ -292,7 +293,10 @@ main .main-content {
 .show-dialog-content {
     position: relative;
     max-width: 600px;
+    max-height: 95vh;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .show-dialog-close {
@@ -339,4 +343,8 @@ main .main-content {
 
 .show-dialog .show {
     cursor: default;
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    overflow: hidden;
 }

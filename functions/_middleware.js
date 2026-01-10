@@ -43,7 +43,7 @@ export async function onRequest(context) {
   }
 
   // Prepare meta tag values
-  const formattedDate = new Date(show.date).toLocaleString('en-US', {
+  const formattedDate = show.date.toLocaleString('en-US', {
     weekday: 'short',
     month: 'short',
     day: 'numeric',

@@ -1,7 +1,7 @@
 // Cloudflare Pages Edge Function for show-specific meta tag injection
 // This injects show-specific meta tags for any request with a show ID parameter
 
-import shows from '../public/data/shows.json';
+import shows from '../public/data/shows.js';
 
 function getShowData(showId) {
   return shows.find(show => show.id === showId);

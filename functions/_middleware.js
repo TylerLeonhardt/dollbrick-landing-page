@@ -1,7 +1,7 @@
 // Cloudflare Pages Edge Function for show-specific meta tag injection
 // This injects show-specific meta tags for any request with a show ID parameter
 
-import shows from '../public/data/shows.js';
+import shows from '../public/data/shows.json';
 
 function getShowData(showId) {
   return shows.find(show => show.id === showId);
@@ -14,8 +14,15 @@ export async function onRequest(context) {
   // Only process index.html with show ID parameter
   const showId = url.searchParams.get('id');
   
-  if (!showId || url.pathname !== '/') {
-    // No show ID or not homepage - serve normally
+  if (!showId) {
+    // No show ID - serve normally
+    return next();
+  }
+  
+  // Only process homepage (could be /, /index.html, or /index)
+  const isHomepage = url.pathname === '/' || url.pathname === '/index.html' || url.pathname === '/index';
+  if (!isHomepage) {
+    // Not homepage - serve normally
     return next();
   }
 

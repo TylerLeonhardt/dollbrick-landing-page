@@ -50,6 +50,28 @@ const HeroBanner = () => html`
   </section>
 `;
 
+const ShowCard = ({ show, ticketLinkRef = null, altText = "testAlt" }) => {
+  const now = new Date();
+  const isPast = show.date <= now;
+
+  return html`
+    <${Card} className="show">
+      <${ImageHeader} className="show-image" alt=${altText} imageSrc="${show.image ?? './assets/images/hero-image.png'}" />
+      <${CardBody}>
+        <h2 class="center">${show.title}</h2>
+        ${show.jetCity ? html`<h5 class="center">In collaboration with <a target="_blank" href="https://www.jetcityimprov.org">Jet City Improv</a></h5>` : ''}
+        <p>${show.date.toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })} - ${show.location}</p>
+        <p>${show.description}</p>
+      </${CardBody}>
+      ${!isPast && html`
+        <${CardFooter}>
+          <a ref=${ticketLinkRef} disabled=${!show.tickets} href=${show.tickets} onClick=${(e) => e.stopPropagation()}>${!show.tickets ? 'Tickets on sale soon!' : 'Tickets'}</a>
+        </${CardFooter}>
+      `}
+    </${Card}>
+  `;
+};
+
 const ShowDialog = ({ show, onClose }) => {
   const dialogRef = React.useRef(null);
   const ticketLinkRef = React.useRef(null);
@@ -96,69 +118,35 @@ const ShowDialog = ({ show, onClose }) => {
 
   if (!show) return null;
 
-  const now = new Date();
-  const isPast = show.date <= now;
-
   return html`
     <dialog ref=${dialogRef} className="show-dialog" onClick=${handleBackdropClick}>
       <div className="show-dialog-content">
         <button className="show-dialog-close" onClick=${handleClose} aria-label="Close dialog"></button>
-        <${Card} className="show">
-          <${ImageHeader} className="show-image" alt=${show.title} imageSrc="${show.image ?? './assets/images/hero-image.png'}" />
-          <${CardBody}>
-            <h2 class="center">${show.title}</h2>
-            ${show.jetCity ? html`<h5 class="center">In collaboration with <a target="_blank" href="https://www.jetcityimprov.org">Jet City Improv</a></h5>` : ''}
-            <p>${show.date.toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })} - ${show.location}</p>
-            <p>${show.description}</p>
-          </${CardBody}>
-          ${!isPast && html`
-            <${CardFooter}>
-              <a ref=${ticketLinkRef} disabled=${!!show.tickets} href=${show.tickets}>${!show.tickets ? 'Tickets on sale soon!' : 'Tickets'}</a>
-            </${CardFooter}>
-          `}
-        </${Card}>
+        <${ShowCard} show=${show} ticketLinkRef=${ticketLinkRef} altText=${show.title} />
       </div>
     </dialog>
   `;
 };
 
-const Show = ({ show, onClick }) => {
-  const now = new Date();
-  const isPast = show.date <= now;
-
-  const handleClick = (e) => {
+const ShowList = ({ shows, title, showMoreMessage = true, onShowClick }) => {
+  const handleShowClick = (show) => (e) => {
     // Prevent clicks on links from triggering the card click
     if (e.target.tagName === 'A' || e.target.closest('a')) {
       return;
     }
-    onClick(show);
+    onShowClick(show);
   };
 
   return html`
-    <div onClick=${handleClick} style=${{ cursor: 'pointer' }}>
-      <${Card} className="show">
-        <${ImageHeader} className="show-image" alt="testAlt" imageSrc="${show.image ?? './assets/images/hero-image.png'}" />
-        <${CardBody}>
-          <h2 class="center">${show.title}</h2>
-          ${show.jetCity ? html`<h5 class="center">In collaboration with <a target="_blank" href="https://www.jetcityimprov.org">Jet City Improv</a></h5>` : ''}
-          <p>${show.date.toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })} - ${show.location}</p>
-          <p>${show.description}</p>
-        </${CardBody}>
-        ${!isPast && html`
-          <${CardFooter}>
-            <a disabled=${!!show.tickets} href=${show.tickets} onClick=${(e) => e.stopPropagation()}>${!show.tickets ? 'Tickets on sale soon!' : 'Tickets'}</a>
-          </${CardFooter}>
-        `}
-      </${Card}>
-    </div>
+    <h2>${title}</h2>
+    ${shows.map(show => html`
+      <div key=${show.id} onClick=${handleShowClick(show)} style=${{ cursor: 'pointer' }}>
+        <${ShowCard} show=${show} />
+      </div>
+    `)}
+    ${showMoreMessage && (shows.length ? html`<h5>More shows coming soon...</h5>` : html`<h5>Upcoming shows coming soon...</h5>`)}
   `;
 };
-
-const ShowList = ({ shows, title, showMoreMessage = true, onShowClick }) => html`
-  <h2>${title}</h2>
-  ${shows.map(show => html`<${Show} show=${show} onClick=${onShowClick} />`)}
-  ${showMoreMessage && (shows.length ? html`<h5>More shows coming soon...</h5>` : html`<h5>Upcoming shows coming soon...</h5>`)}
-`;
 
 const Home = () => {
   const [selectedShow, setSelectedShow] = React.useState(null);

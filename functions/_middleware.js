@@ -1,27 +1,7 @@
-// Cloudflare Pages Edge Function for bot meta tag injection
-// This intercepts bot requests and injects show-specific meta tags
+// Cloudflare Pages Edge Function for show-specific meta tag injection
+// This injects show-specific meta tags for any request with a show ID parameter
 
 import shows from '../public/data/shows.js';
-
-const BOT_USER_AGENTS = [
-  'Discordbot',
-  'Twitterbot',
-  'facebookexternalhit',
-  'WhatsApp',
-  'TelegramBot',
-  'Slackbot',
-  'LinkedInBot',
-  'SkypeUriPreview',
-  'vkShare',
-  'Pinterest',
-  'Google-InspectionTool',
-  'Googlebot',
-];
-
-function isBot(userAgent) {
-  if (!userAgent) return false;
-  return BOT_USER_AGENTS.some(bot => userAgent.includes(bot));
-}
 
 function getShowData(showId) {
   return shows.find(show => show.id === showId);
@@ -30,13 +10,19 @@ function getShowData(showId) {
 export async function onRequest(context) {
   const { request, next } = context;
   const url = new URL(request.url);
-  const userAgent = request.headers.get('user-agent') || '';
   
-  // Only process index.html for bots with show ID
+  // Only process index.html with show ID parameter
   const showId = url.searchParams.get('id');
   
-  if (!isBot(userAgent) || !showId || url.pathname !== '/') {
-    // Not a bot or no show ID - serve normally
+  if (!showId) {
+    // No show ID - serve normally
+    return next();
+  }
+  
+  // Only process homepage (could be /, /index.html, or /index)
+  const isHomepage = url.pathname === '/' || url.pathname === '/index.html' || url.pathname === '/index';
+  if (!isHomepage) {
+    // Not homepage - serve normally
     return next();
   }
 
@@ -57,7 +43,7 @@ export async function onRequest(context) {
   }
 
   // Prepare meta tag values
-  const formattedDate = new Date(show.date).toLocaleString('en-US', {
+  const formattedDate = show.date.toLocaleString('en-US', {
     weekday: 'short',
     month: 'short',
     day: 'numeric',

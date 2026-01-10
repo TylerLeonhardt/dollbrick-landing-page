@@ -4,7 +4,7 @@ https://dollbrick.com
 
 ## Development
 
-This is a **zero-build** React site with Cloudflare Pages Edge Functions for social media bot support.
+This is a **zero-build** React site with Cloudflare Pages Edge Functions for show-specific meta tag injection.
 
 ### Local Development
 
@@ -29,5 +29,5 @@ No build steps needed! It's all pure JS importing React on the fly.
 
 See [CLOUDFLARE_SETUP.md](CLOUDFLARE_SETUP.md) for Cloudflare Pages deployment instructions.
 
-**Why Cloudflare?** Social media platforms (Discord, WhatsApp, Android, etc.) don't execute JavaScript when generating link previews. The Edge Function detects bots and injects the correct meta tags server-side.
+**Why Cloudflare?** Social media platforms (Discord, WhatsApp, iMessage, etc.) don't execute JavaScript when generating link previews. The Edge Function injects show-specific meta tags server-side for any request with a show ID parameter.
 

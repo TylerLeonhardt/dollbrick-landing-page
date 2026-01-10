@@ -23,26 +23,16 @@ Click "Save and Deploy" - Cloudflare will automatically build and deploy your si
 
 ## How It Works
 
-### For Regular Users
-- Your React app loads and runs normally
-- Client-side routing with `?id=` parameters works as expected
-- Fast, zero-build experience preserved
+The Edge Function (`functions/_middleware.js`) runs on Cloudflare's edge network and:
+- Detects requests with a `?id=` parameter (e.g., `/?id=spoons-in-20260215`)
+- Loads the show data from `public/data/shows.js`
+- Injects show-specific Open Graph and Twitter Card meta tags into the HTML
+- Works for all visitors (both bots and regular browsers)
 
-### For Bots (Discord, WhatsApp, etc.)
-- The Edge Function (`functions/_middleware.js`) detects bot user agents
-- Imports show data directly from `public/data/shows.js`
-- Injects proper meta tags into the HTML before sending to the bot
-- Bot sees proper Open Graph tags and generates rich previews
-
-### Supported Bots
-- Discord
-- WhatsApp
-- Telegram
-- Facebook
-- Twitter/X
-- LinkedIn
-- Slack
-- And many more!
+This ensures:
+- **Social media bots** (Discord, WhatsApp, iMessage, Twitter) see correct meta tags for rich link previews
+- **Regular users** get proper meta tags in the initial HTML, making the page faster and more SEO-friendly
+- No need to maintain a list of bot user agents - it works universally
 
 ## Local Development
 

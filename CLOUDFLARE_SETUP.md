@@ -1,9 +1,5 @@
 # Cloudflare Pages Deployment Guide
 
-This guide covers deploying the Dollbrick landing page to Cloudflare Pages.
-
-**Note**: The bot-specific edge function has been removed to simplify deployment and maintenance. The site now uses standard meta tags that work for general social media sharing, though show-specific previews are not available when sharing links.
-
 ## Setup Instructions
 
 ### 1. Connect to Cloudflare Pages
@@ -27,20 +23,39 @@ Click "Save and Deploy" - Cloudflare will automatically build and deploy your si
 
 ## How It Works
 
-The site is a zero-build React application that runs entirely in the browser:
-* All JavaScript is loaded from CDN (esm.sh)
-* No build step or compilation required
-* Meta tags are updated client-side when users navigate to show pages
-* Fast, simple deployment to any static host
+### For Regular Users
+- Your React app loads and runs normally
+- Client-side routing with `?id=` parameters works as expected
+- Fast, zero-build experience preserved
+
+### For Bots (Discord, WhatsApp, etc.)
+- The Edge Function (`functions/_middleware.js`) detects bot user agents
+- Imports show data directly from `public/data/shows.js`
+- Injects proper meta tags into the HTML before sending to the bot
+- Bot sees proper Open Graph tags and generates rich previews
+
+### Supported Bots
+- Discord
+- WhatsApp
+- Telegram
+- Facebook
+- Twitter/X
+- LinkedIn
+- Slack
+- And many more!
 
 ## Local Development
 
-For local development, use:
+For local development, continue using:
 ```bash
 npm start
 ```
 
-This serves the `public/` directory on port 3000.
+The Edge Function only runs on Cloudflare Pages, not locally. To test the Edge Function locally, you can use [Wrangler](https://developers.cloudflare.com/workers/wrangler/):
+
+```bash
+npx wrangler pages dev public
+```
 
 ## Updating Shows
 

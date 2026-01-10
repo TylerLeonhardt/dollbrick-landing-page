@@ -10,12 +10,12 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/TylerLeonhardt/dollbrick-landing-page.git"
+        "url": "git+https://github.com/dollbrick/dollbrick-landing-page.git"
     },
-    "author": "TylerLeonhardt",
+    "author": "Dollbrick",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/TylerLeonhardt/dollbrick-landing-page/issues"
+        "url": "https://github.com/dollbrick/dollbrick-landing-page/issues"
     },
     "homepage": "https://dollbrick.com"
 }

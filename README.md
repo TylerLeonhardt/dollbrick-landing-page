@@ -27,7 +27,4 @@ No build steps needed! It's all pure JS importing React on the fly.
 
 ### Deployment
 
-See [CLOUDFLARE_SETUP.md](CLOUDFLARE_SETUP.md) for Cloudflare Pages deployment instructions.
-
 **Why Cloudflare?** Social media platforms (Discord, WhatsApp, iMessage, etc.) don't execute JavaScript when generating link previews. The Edge Function injects show-specific meta tags server-side for any request with a show ID parameter.
-

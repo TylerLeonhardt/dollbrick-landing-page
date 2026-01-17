@@ -82,6 +82,14 @@ const shows = [
         image: './assets/images/vermillion_12_28_25.jpeg',
         tickets: 'https://www.eventbrite.com/e/improv-vermillion-tickets-1977847324590?utm-campaign=social&utm-content=attendeeshare&utm-medium=discovery&utm-term=listing&utm-source=cp&aff=ebdsshcopyurl'
     },
+    {
+        ...vermillion,
+        id: 'vermillion-20260222',
+        description: "FREE SHOW! Come see Late for Work Improv and Dollbrick perform improv at Vermillion - it's gonna be a night of laughs and good vibes!",
+        date: getDate(2026, 'Feb', 22, 7, 0, 'PM'),
+        image: './assets/images/vermillion-lfw-02222026.jpg',
+        tickets: 'https://www.eventbrite.com/e/improv-vermillion-featuring-late-for-work-improv-dollbrick-tickets-1980763725624?utm-campaign=social&utm-content=attendeeshare&utm-medium=discovery&utm-term=listing&utm-source=cp&aff=ebdsshcopyurl'
+    },
     // Past
     {
         id: 'forced-perspective-20250926',

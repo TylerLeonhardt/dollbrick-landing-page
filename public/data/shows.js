@@ -90,6 +90,14 @@ const shows = [
         image: './assets/images/vermillion-lfw-02222026.jpg',
         tickets: 'https://www.eventbrite.com/e/improv-vermillion-featuring-late-for-work-improv-dollbrick-tickets-1980763725624?utm-campaign=social&utm-content=attendeeshare&utm-medium=discovery&utm-term=listing&utm-source=cp&aff=ebdsshcopyurl'
     },
+    {
+        ...vermillion,
+        id: 'vermillion-20260412',
+        description: "FREE SHOW! Come see Formerly Known As and Dollbrick perform improv at Vermillion - it's gonna be a night of laughs and good vibes!",
+        date: getDate(2026, 'Apr', 12, 7, 0, 'PM'),
+        image: './assets/images/vermillion-fka.jpg', // TODO: Replace with vermillion-fka-04122026.jpg when image is added
+        tickets: 'https://www.eventbrite.com/e/improv-vermillion-featuring-formerly-known-as-dollbrick-tickets-1986592557818'
+    },
     // Past
     {
         id: 'forced-perspective-20250926',

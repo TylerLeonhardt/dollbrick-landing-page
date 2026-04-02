@@ -95,7 +95,7 @@ const shows = [
         id: 'vermillion-20260412',
         description: "FREE SHOW! Come see Formerly Known As and Dollbrick perform improv at Vermillion - it's gonna be a night of laughs and good vibes!",
         date: getDate(2026, 'Apr', 12, 7, 0, 'PM'),
-        image: './assets/images/vermillion-fka.jpg', // TODO: Replace with vermillion-fka-04122026.jpg when image is added
+        image: './assets/images/vermillion-fka-04122026.jpg',
         tickets: 'https://www.eventbrite.com/e/improv-vermillion-featuring-formerly-known-as-dollbrick-tickets-1986592557818'
     },
     // Past
